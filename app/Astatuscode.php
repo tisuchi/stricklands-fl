@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Astatuscode extends Model
 {
-    protected $table = 'A_tbl_status_code';
+    protected $table = 'a_tbl_status_code';
 
     
     /**
