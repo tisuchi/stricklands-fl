@@ -27,7 +27,7 @@ class InventoryController extends Controller
     	$locations = Alocation::where('id','<>',100)->orderBy('fldLocationOrder')->get();
     	$statuscodes = Astatuscode::with('vehicle')->orderBy('fld_desc','desc')->get();
     	$types = Atype::get();
-    	$makes = Vehicle::paginate(100);
+    	$makes = Vehicle::Makeinfo();
     	$vehicles = null;
 
     	if(Request()->input('filter')){

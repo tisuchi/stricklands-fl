@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Vehicle extends Model
 {
     protected $table = 'tblvehicles';
+    public static $snakeAttributes = false;
 
 
     public static function scopeMakeinfo($query, $select= 'fldMake', $orderby = 'fldMake')
@@ -33,7 +34,17 @@ class Vehicle extends Model
      */
     public function location()
     {
-    	return $this->belongsTo('App\Alocation', 'fldLocationCode', 'fldCode');
+        return $this->belongsTo('App\Alocation', 'fldLocationCode', 'fldCode');
+    }
+
+
+    /**
+     * A Vehicle is belongs to a Type
+     * @return [type] [description]
+     */
+    public function cartype()
+    {
+    	return $this->belongsTo('App\Atype', 'fldType', 'fldCode');
     }
 
 
