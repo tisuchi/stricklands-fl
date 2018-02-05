@@ -21,11 +21,18 @@ class InventoryController extends Controller
     }
 
 
+
+
+    /**
+     * Show Invenotry Search page
+     * @return [type] [description]
+     */
     public function showSearch()
     {
 
+        //fetching data from database for Dropdown menu in Search Page
     	$locations = Alocation::where('id','<>',100)->orderBy('fldLocationOrder')->get();
-    	$statuscodes = Astatuscode::with('vehicle')->orderBy('fld_desc','desc')->get();
+    	$statuscodes = Astatuscode::orderBy('fld_desc','desc')->get();
     	$types = Atype::get();
     	$makes = Vehicle::Makeinfo();
     	$vehicles = null;
@@ -37,6 +44,8 @@ class InventoryController extends Controller
     	
     	return view('admin.pages.inventory_search', compact('locations', 'statuscodes', 'types', 'makes', 'vehicles'));
     }
+
+
 
 
 }

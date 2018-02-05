@@ -348,7 +348,7 @@
         <li class=" nav-item">
           <a href="index.html"><i class="fa fa-list" aria-hidden="true"></i><span data-i18n="" class="menu-title">Inventory</span></a>
           <ul class="menu-content">
-            <li><a href="{{ ENV('BASE_URL') }}admin/inventory/search" class="menu-item">Search</a>
+            <li><a href="{{ route('admin-search') }}" class="menu-item">Search</a>
             </li>
             <li><a href="{{ ENV('BASE_URL') }}admin/inventory/4days" class="menu-item">4 Days</a>
             </li>
