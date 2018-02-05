@@ -26,52 +26,49 @@ class InventoryRepository {
 		if ( Request()->get('vStock') != '' )	//searching stock
 		    $vehicles->where('fldStockNo', 'LIKE', "%$allRecords[vStock]%");
 
-		if ( Request()->get('vMake') != '' ){	//searching who make
+		if ( Request()->get('vMake') != '' ){	//searching who built the car
 			if ( Request()->get('vMake') != 'all' ) {
 				$vehicles->where('fldMake', $allRecords['vMake']);
 			}
 		}
 
-		if ( Request()->get('vLoc') != 'all' ) {
+		if ( Request()->get('vLoc') != 'all' ) {	//searching location
 			$vloc = Request()->get('vLoc');
 			$vehicles->whereHas('location', function($q) use ($vloc){
 				$q->where('fldLocationCode', $vloc);
 			});
 		}
 
-		if ( Request()->get('vNewUsed') != 'all' ) {
+		if ( Request()->get('vNewUsed') != 'all' ) {	//searching the car is used or new
 			$vnewused = Request()->get('vNewUsed');
 			$vehicles->whereHas('statuscode', function($q) use ($vnewused){
 				$q->where('fld_code', $vnewused);
 			});
 		}
 
-		if ( Request()->get('vType') != 'all' ) {
+		if ( Request()->get('vType') != 'all' ) {	//searching car type
 			$vtype = Request()->get('vType');
 			$vehicles->whereHas('cartype', function($q) use ($vtype){
 				$q->where('fldCode', $vtype);
 			});
 		}
 
-		if ( !empty( Request()->get('vRetail') ) ) {
+		if ( !empty( Request()->get('vRetail') ) ) {	//searching price
 			$vehicles->where('fldRetail', '<=', Request()->get('vRetail'));
 		};
 
-		if ( !empty( Request()->get('vOdometer') ) ) {
+		if ( !empty( Request()->get('vOdometer') ) ) {	//searhcing milage
 			$vehicles->where('fldOdometer', '<=', Request()->get('vOdometer'));
 		};
 
-		if ( Request()->get('vYear') != 'all' ) {
+		if ( Request()->get('vYear') != 'all' ) {	//searching menufeturing year
 			$vyear = Request()->get('vYear');
 			$vehicles->where('fldYear', $vyear);
 		}
 
-		if ( Request()->get('vMake') != 'all' ) {
-			$vmake = Request()->get('vMake');
-			$vehicles->where('fldMake', $vmake);
-		}
 
-		return $vehicles->get();
+		return $vehicles->get();	//retrun ultimate query
+
     }
 
 

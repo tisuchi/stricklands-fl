@@ -30,13 +30,11 @@ class InventoryController extends Controller
     	$makes = Vehicle::Makeinfo();
     	$vehicles = null;
 
+    	//check if there is a parameter in url, start searching
     	if(Request()->input('filter')){
-    		//fetch data
 			$vehicles = $this->inventoryRepository->doSearch(request()->all());
     	}
-
-    	//return $vehicles;
-
+    	
     	return view('admin.pages.inventory_search', compact('locations', 'statuscodes', 'types', 'makes', 'vehicles'));
     }
 
