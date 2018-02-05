@@ -141,39 +141,59 @@
                     <table class="table table-striped table-bordered zero-configuration">
                       <thead>
                         <tr>
-													<th></th>
-                          <th>Vehicle</th>
-                          <th></th>
-                          <th>Stock</th>
-                          <th>L</th>
-                          <th>Days</th>
-                          <th>Vin</th>
-													<th>Engine</th>
-													<th>Trans</th>
-													<th>Colour</th>
-													<th>Features</th>
-													<th>KM's</th>
-													<th>Price</th>
+							<th></th>
+							<th>Vehicle</th>
+							<th></th>
+							<th>Stock</th>
+							<th>L</th>
+							<th>Days</th>
+							<th>Vin</th>
+							<th>Engine</th>
+							<th>Trans</th>
+							<th>Colour</th>
+							<th>Features</th>
+							<th>KM's</th>
+							<th>Price</th>
                         </tr>
                       </thead>
                       <tbody>
+						
+						@if( count($vehicles) > 0 )
+							@foreach($vehicles as $vehicle)
+		                      	<tr>
+		                          	<th></th>
+									<th>{{ $vehicle->fldYear }} {{ $vehicle->fldMake }} {{ $vehicle->fldModel }} {{ $vehicle->fldModelNo }} </th>
+									<th></th>
+									<th>{{ $vehicle->fldStockNo }} </th>
+									<th>{{ $vehicle->fldLocationCode }} </th>
+									<th>-</th>
+									<th>{{ $vehicle->fldShortVINNo }}</th>
+									<th>{{ $vehicle->fldCyl }}</th>
+									<th>{{ $vehicle->fldTransmission }}</th>
+									<th>{{ $vehicle->fldExteriorColor }}</th>
+									<th>{{ $vehicle->fldAllCodes }}</th>
+									<th>{{ $vehicle->fldOdometer }}</th>
+									<th>{{ $vehicle->fldRetail }}</th>
+		                        </tr>
+	                       	@endforeach
+                        @endif
                         
                       </tbody>
                       <tfoot>
                         <tr>
                           <th></th>
-                          <th>Vehicle</th>
-                          <th></th>
-                          <th>Stock</th>
-                          <th>L</th>
-                          <th>Days</th>
-                          <th>Vin</th>
-													<th>Engine</th>
-													<th>Trans</th>
-													<th>Colour</th>
-													<th>Features</th>
-													<th>KM's</th>
-													<th>Price</th>
+							<th>Vehicle</th>
+							<th></th>
+							<th>Stock</th>
+							<th>L</th>
+							<th>Days</th>
+							<th>Vin</th>
+							<th>Engine</th>
+							<th>Trans</th>
+							<th>Colour</th>
+							<th>Features</th>
+							<th>KM's</th>
+							<th>Price</th>
                         </tr>
                       </tfoot>
                     </table>
