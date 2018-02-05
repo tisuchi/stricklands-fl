@@ -115,11 +115,11 @@
 						</div>
 						
 						<div class="col-md-2">
-								<input type="text" class="form-control" id="sel_model" placeholder="Model" name="vModel">
+								<input type="text" class="form-control" id="sel_model" placeholder="Model" name="vModel" @if(Request::input('vStock')) value="{{ Request::input('vStock') }}" @endif>
 						</div>
 						
 						<div class="col-md-2">
-								<input type="text" class="form-control" id="sel_stocknum" placeholder="Stock#" name="vStock">
+								<input type="text" class="form-control" id="sel_stocknum" placeholder="Stock#" name="vStock" @if(Request::input('vStock')) value="{{ Request::input('vStock') }}" @endif>
 						</div>
 						
 						<div class="col-md-2">
