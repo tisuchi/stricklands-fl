@@ -1,0 +1,132 @@
+@font-face {
+  font-family: 'MyWebFont-Bold';
+  src:  url('../../client/fonts/OpenSans-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'MyWebFont-BoldItalic';
+  src:  url('../../client/fonts/OpenSans-BoldItalic.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'MyWebFont-ExtraBold';
+  src:  url('../../client/fonts/OpenSans-ExtraBold.ttf') format('truetype');
+        
+}
+
+@font-face {
+  font-family: 'MyWebFont-ExtraBoldItalic';
+  src:  url('../../client/fonts/OpenSans-ExtraBoldItalic.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'MyWebFont-Italic';
+  src:  url('../../client/fonts/OpenSans-Italic.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'MyWebFont-Light';
+  src:  url('../../client/fonts/opensans/OpenSans-Light.ttf') format('truetype');
+}  
+
+@font-face {
+  font-family: 'MyWebFont-LightItalic';
+  src:  url('../../client/fonts/OpenSans-LightItalic.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'MyWebFont-Regular';
+  src:  url('../../client/fonts/OpenSans-Regular.ttf') format('truetype');
+}
+
+
+@font-face {
+  font-family: 'MyWebFont-SemiBold';
+  src:  url('../../client/fonts/OpenSans-Semibold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'MyWebFont-SemiBoldItalic';
+  src:  url('../../client/client/fonts/OpenSans-SemiboldItalic.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Sansation-Bold';
+  src:  url('../../client/fonts/Sansation-Bold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Roboto-Regular';
+  src:  url('../../client/fonts/Roboto-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Roboto-Light';
+  src:  url('../../client/fonts/Roboto-Light.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Lato-Regular';
+  src:  url('../../client/fonts/Lato-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Lato-Bold';
+  src:  url('../../client/fonts/Lato-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Lato-Black';
+  src:  url('../../client/fonts/Lato-Black.ttf') format('truetype');
+}
+
+
+/* ===========  responsible table css.===========
+
+Max width before this PARTICULAR table gets nasty
+This query will take effect for any screen smaller than 760px
+and also iPads specifically.
+*/
+@media only screen and (max-width: 760px),(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+  /* Force table to not be like tables anymore */
+  table, thead, tbody, th, td, tr { 
+    display: block; 
+  }
+  
+  /* Hide table headers (but not display: none;, for accessibility) */
+  thead tr { 
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+  
+  tr { border: 1px solid #ccc; }
+  
+  td { 
+    /* Behave  like a "row" */
+    border: none;
+    border-bottom: 1px solid #eee; 
+    position: relative;
+    padding-left: 50%; 
+  }
+  
+  td:before { 
+    /* Now like a table header */
+    position: absolute;
+    /* Top/left values mimic padding */
+    top: 6px;
+    left: 6px;
+    width: 45%; 
+    padding-right: 10px; 
+    white-space: nowrap;
+  }
+
+  .table > tbody > tr > td{
+    padding-left: 50%;
+  }
+  
+}
+
+/* end responsive table ces part */
+
+
+
