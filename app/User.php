@@ -9,7 +9,7 @@ class User extends Authenticatable
 {
     use Notifiable;
 
-    protected $table = 'pec_users';
+    protected $table = 'a_tbl_contact';
     protected $nullable = ['created_at', 'updated_at'];
 
     /**

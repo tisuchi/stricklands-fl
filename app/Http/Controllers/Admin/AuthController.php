@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use Auth;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -19,15 +20,21 @@ class AuthController extends Controller
 
     public function doLogin()
     {
-    	
+        
+        //check userlogin manually
+        $hasUser = User::where('fld_usr_email', request()->input('email'))
+                        ->where('fld_usr_password', request()->input('password'))       
+                        ->where('fld_usr_status', 'Y')
+                        ->first();
+        
 
-    	if (!Auth::attempt(['email' => request()->input('email'), 'password' => request()->input('password')])) {
-            //fail authentication
+        if ( $hasUser ) {
+            Auth::login($hasUser);
+            
+            return redirect()->route('admin-search')->with('success', 'You have successfully logged in.');            
+        }  else {
             return redirect()->back()->with('danger', "Wrong Username / Password");
-        }
-
-
-        return redirect()->route('admin-search')->with('success', 'You have successfully logged in.');
+        } 	
     }
 
 
