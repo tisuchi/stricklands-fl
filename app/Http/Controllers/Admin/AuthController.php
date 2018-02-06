@@ -21,7 +21,7 @@ class AuthController extends Controller
     {
     	
 
-    	if ( Auth::attempt(['email' => request()->input('email'), 'password' => request()->input('password')])) {
+    	if (!Auth::attempt(['email' => request()->input('email'), 'password' => request()->input('password')])) {
             //fail authentication
             return redirect()->back()->with('danger', "Wrong Username / Password");
         }
