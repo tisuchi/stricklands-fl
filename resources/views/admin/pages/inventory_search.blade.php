@@ -158,26 +158,28 @@
                       </thead>
                       <tbody>
 						
-						@if( count($vehicles) > 0 )
-							@foreach($vehicles as $vehicle)
-		                      	<tr>
-		                          	<th></th>
-									<th>{{ $vehicle->fldYear }} {{ $vehicle->fldMake }} {{ $vehicle->fldModel }} {{ $vehicle->fldModelNo }} </th>
-									<th></th>
-									<th>{{ $vehicle->fldStockNo }} </th>
-									<th>{{ $vehicle->fldLocationCode }} </th>
-									<th>-</th>
-									<th>{{ $vehicle->fldShortVINNo }}</th>
-									<th>{{ $vehicle->fldCyl }}</th>
-									<th>{{ $vehicle->fldTransmission }}</th>
-									<th>{{ $vehicle->fldExteriorColor }}</th>
-									<th>{{ $vehicle->fldAllCodes }}</th>
-									<th>{{ $vehicle->fldOdometer }}</th>
-									<th>{{ $vehicle->fldRetail }}</th>
-		                        </tr>
-	                       	@endforeach
-                        @endif
-                        
+							@if( count($vehicles) > 0 )
+								@foreach($vehicles as $vehicle)
+			                      	<tr>
+			                          	<th></th>
+										<th> 
+											<a href="#" data-toggle="modal" data-target="#default">{{ $vehicle->fldYear }} {{ $vehicle->fldMake }} {{ $vehicle->fldModel }} {{ $vehicle->fldModelNo }}</a> 
+										</th>
+
+										<th></th>
+										<th>{{ $vehicle->fldStockNo }} </th>
+										<th>{{ $vehicle->fldLocationCode }} </th>
+										<th>-</th>
+										<th>{{ $vehicle->fldShortVINNo }}</th>
+										<th>{{ $vehicle->fldCyl }}</th>
+										<th>{{ $vehicle->fldTransmission }}</th>
+										<th>{{ $vehicle->fldExteriorColor }}</th>
+										<th>{{ $vehicle->fldAllCodes }}</th>
+										<th>{{ $vehicle->fldOdometer }}</th>
+										<th>{{ $vehicle->fldRetail }}</th>
+			                        </tr>
+		                       	@endforeach
+	                        @endif
                       </tbody>
                       <tfoot>
                         <tr>
@@ -203,8 +205,6 @@
             </div>
           </div>
         </section>
-				
-				
 			</div>
     </div>
 </div>
