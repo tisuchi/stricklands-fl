@@ -138,7 +138,8 @@
                 
                 <div class="card-content collapse show">
                   <div class="card-body card-dashboard">
-                    <table class="table table-striped table-bordered zero-configuration">
+                    {{-- <table class="table table-striped table-bordered zero-configuration"> --}}
+                    <table class="table display nowrap table-striped table-bordered scroll-horizontal dataTable no-footer table-sm">
                       <thead>
                         <tr>
 							<th></th>
@@ -163,7 +164,11 @@
 			                      	<tr>
 			                          	<th></th>
 										<th> 
-											<a href="#" data-toggle="modal" data-target="#default-{{ $vehicle->fldStockNo }}">{{ $vehicle->fldYear }} {{ $vehicle->fldMake }} {{ $vehicle->fldModel }} {{ $vehicle->fldModelNo }}</a> 
+											<a href="#" data-toggle="modal" data-target="#default-{{ $vehicle->fldStockNo }}">
+												<?php 
+													echo substr($vehicle->fldYear ." ". $vehicle->fldMake ." ". $vehicle->fldModel ." ". $vehicle->fldModelNo, 0, 40);
+												?>
+											</a> 
 										</th>
 										
 										{{-- modal --}}
