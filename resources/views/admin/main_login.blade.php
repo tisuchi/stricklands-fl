@@ -65,7 +65,7 @@
           }
       });
 
-      var base_url = '{{$base_url}}';
+      
   </script>
   @yield('script')
 </body>

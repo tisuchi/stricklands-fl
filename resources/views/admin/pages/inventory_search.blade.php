@@ -163,8 +163,200 @@
 			                      	<tr>
 			                          	<th></th>
 										<th> 
-											<a href="#" data-toggle="modal" data-target="#default">{{ $vehicle->fldYear }} {{ $vehicle->fldMake }} {{ $vehicle->fldModel }} {{ $vehicle->fldModelNo }}</a> 
+											<a href="#" data-toggle="modal" data-target="#default-{{ $vehicle->fldStockNo }}">{{ $vehicle->fldYear }} {{ $vehicle->fldMake }} {{ $vehicle->fldModel }} {{ $vehicle->fldModelNo }}</a> 
 										</th>
+										
+										{{-- modal --}}
+										<div class="modal fade text-left" id="default-{{ $vehicle->fldStockNo }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" style="display: none;" aria-hidden="true">
+											  <div class="modal-dialog modal-lg" role="document">
+												<div class="modal-content">
+												  <div class="modal-header">
+													<h4 class="modal-title" id="myModalLabel1">
+														{{ $vehicle->fldYear }} {{ $vehicle->fldMake }} {{ $vehicle->fldModel }} {{ $vehicle->fldModelNo }} - ${{ $vehicle->fldRetail }}
+													</h4>
+													<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+													  <span aria-hidden="true">×</span>
+													</button>
+												  </div>
+												  <div class="modal-body">
+													<div class="row">
+														<div class="col-sm-6">
+															<div class="card">
+																<div class="card-content">
+																	<div class="card-body">
+																		<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+																			
+																			{{-- <ol class="carousel-indicators">
+																				<li data-target="#carousel-example-generic" data-slide-to="0" class=""></li>
+																				<li data-target="#carousel-example-generic" data-slide-to="1" class="active"></li>
+																				<li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
+																			</ol> --}}
+																			<div class="carousel-inner" role="listbox">
+																				
+																				
+																				<div class="carousel-item active">
+																					<img src="http://images.stricklands.com/vin/G180337-2.jpg" alt="First slide" width='500' height='375'>
+																				</div> 
+
+																				<div class="carousel-item">
+																					<img src="http://images.stricklands.com/vin/G180337-3.jpg" alt="First slide" width='500' height='375'>
+																				</div> 
+
+																				<div class="carousel-item">
+																					<img src="http://images.stricklands.com/vin/G180337-4.jpg" alt="First slide" width='500' height='375'>
+																				</div> 
+
+																				<div class="carousel-item">
+																					<img src="http://images.stricklands.com/vin/G180337-5.jpg" alt="First slide" width='500' height='375'>
+																				</div> 
+
+																				<div class="carousel-item">
+																					<img src="http://images.stricklands.com/vin/G180337-6.jpg" alt="First slide" width='500' height='375'>
+																				</div> 
+
+																				
+																			</div>
+																			<a class="carousel-control-prev" href="#carousel-example-generic" role="button" data-slide="prev">
+																				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+																				<span class="sr-only">Previous</span>
+																			</a>
+																			<a class="carousel-control-next" href="#carousel-example-generic" role="button" data-slide="next">
+																				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+																				<span class="sr-only">Next</span>
+																			</a>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="col-sm-6">
+															<h3>Vehicle Details</h3>
+															<hr>
+															
+															<div class="row">
+																<div class="col-sm-4">Stock#:</div>
+																<div class="col-sm-8">
+																	<span class="text-left">
+																		{{ $vehicle->fldStockNo }}
+																	</span>
+																</div>
+															</div>
+															<hr>
+															
+															<div class="row">
+																<div class="col-sm-4">Short Vin#:</div>
+																<div class="col-sm-8">
+																	<span class="text-left">
+																		{{ $vehicle->fldShortVINNo }}
+																	</span>
+																</div>
+															</div>
+															<hr>
+															
+															<div class="row">
+																<div class="col-sm-4">Vin#:</div>
+																<div class="col-sm-8">
+																	<span class="text-left">
+																		{{ $vehicle->fldVINNo }}
+																	</span>
+																</div>
+															</div>
+															<hr>
+															
+															<div class="row">
+																<div class="col-sm-4">Color#:</div>
+																<div class="col-sm-8">
+																	<span class="text-left">
+																		{{ $vehicle->fldExteriorColor }}
+																	</span>
+																</div>
+															</div>
+															<hr>
+															
+															<div class="row">
+																<div class="col-sm-4">Engine#:</div>
+																<div class="col-sm-8">
+																	<span class="text-left">
+																		{{ $vehicle->fldCyl }}
+																	</span>
+																</div>
+															</div>
+															<hr>
+															
+															<div class="row">
+																<div class="col-sm-4">Transmission#:</div>
+																<div class="col-sm-8">
+																	<span class="text-left">
+																		{{ $vehicle->fldTransmission }}
+																	</span>
+																</div>
+															</div>
+															<hr>
+															
+															<div class="row">
+																<div class="col-sm-4">KM's#:</div>
+																<div class="col-sm-8">
+																	<span class="text-left">
+																		{{ $vehicle->fldOdometer }}
+																	</span>
+																</div>
+															</div>
+															<hr>
+															
+															<div class="row">
+																<div class="col-sm-4">Price#:</div>
+																<div class="col-sm-8">
+																	<span class="text-left">
+																		{{ $vehicle->fldOdometer }}
+																	</span>
+																</div>
+															</div>
+															<hr>
+															
+															<div class="row">
+																<div class="col-sm-4">Location#:</div>
+																<div class="col-sm-8">
+																	<span class="text-left">
+																		{{ $vehicle->fldLocationCode }}
+																	</span>
+																</div>
+															</div>
+															<hr>
+															
+															<div class="row">
+																<div class="col-sm-4">Website URL#:</div>
+																<div class="col-sm-8">
+																	<span class="text-left">
+																		<a href="http://www.stricklands.com/detail.php?stockno={{ $vehicle->fldStockNo }}" target="_blank">Website Link</a>
+																	</span>
+																</div>
+															</div>
+															<hr>
+															
+															<div class="row">
+																<div class="col-sm-4">Info#:</div>
+																<div class="col-sm-8">
+																	<span class="text-left">
+																		{{ $vehicle->fldComments }}
+																	</span>
+																</div>
+															</div>
+
+														</div>
+													</div>
+												  </div>
+												  {{-- <div class="modal-footer">
+													<button type="button" class="btn grey btn-outline-secondary" data-dismiss="modal">Close</button>
+													<button type="button" class="btn btn-outline-primary">Save changes</button>
+												  </div> --}}
+												</div>
+											  </div>
+											</div>
+										</div>
+										
+										
+
+
 
 										<th></th>
 										<th>{{ $vehicle->fldStockNo }} </th>
@@ -205,7 +397,6 @@
             </div>
           </div>
         </section>
-			</div>
     </div>
 </div>
 

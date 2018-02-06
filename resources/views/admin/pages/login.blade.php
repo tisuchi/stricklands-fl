@@ -20,13 +20,14 @@
                   <h6 class="card-subtitle line-on-side text-muted text-center font-small-3 pt-2">
                     <span>Login with Stack</span>
                   </h6>
+                  @include('admin.partials.messages')
                 </div>
                 <div class="card-content">
                   <div class="card-body">
-                    <form class="form-horizontal form-simple" action="{{ route('auth.admin.login') }}" method="post" id="login-form">
+                    <form class="form-horizontal form-simple" action="{{ route('login') }}" method="post" id="login-form">
                       {!! csrf_field() !!}
                       <fieldset class="form-group position-relative has-icon-left mb-0">
-                        <input type="email" class="form-control form-control-lg input-lg" data-parsley-minlength="6"  id = "email" name="email" placeholder="Your Username"  required>
+                        <input type="email" class="form-control form-control-lg input-lg" data-parsley-minlength="6"  id = "email" name="email" placeholder="Your email"  required>
                         <div class="form-control-position">
                           <i class="ft-user"></i>
                         </div>
@@ -41,7 +42,7 @@
 
                   	<div class="form-group">
 						<label style="color:red;">
-							{{$error}}
+							
 						</label>
 					</div>	
 

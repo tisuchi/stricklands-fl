@@ -1,8 +1,10 @@
-<div class="modal fade text-left" id="default" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" style="display: none;" aria-hidden="true">
-		  <div class="modal-dialog" role="document">
+<div class="modal fade text-left" id="default-{{ $vehicle->fldStockNo }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" style="display: none;" aria-hidden="true">
+		  <div class="modal-dialog modal-lg" role="document">
 			<div class="modal-content">
 			  <div class="modal-header">
-				<h4 class="modal-title" id="myModalLabel1">Basic Modal</h4>
+				<h4 class="modal-title" id="myModalLabel1">
+					{{ $vehicle->fldYear }} {{ $vehicle->fldMake }} {{ $vehicle->fldModel }} {{ $vehicle->fldModelNo }}
+				</h4>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 				  <span aria-hidden="true">×</span>
 				</button>
@@ -22,3 +24,4 @@
 			</div>
 		  </div>
 		</div>
+	</div>

@@ -1,4 +1,4 @@
-
+/*
 $(document).ready(function(){
 	_page_init();
 });
@@ -237,7 +237,7 @@ function saveUserInfo(id){
 }
 
 
-/* Export Functions */
+
 function getExportData(pagedata){
 	var exdata = new Array;
 	for(var i = 0; i < pagedata.length; i ++){
@@ -390,3 +390,4 @@ $('#btn_export_xls').on('click',function(){
 
 });
 
+*/

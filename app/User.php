@@ -9,6 +9,9 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    protected $table = 'pec_users';
+    protected $nullable = ['created_at', 'updated_at'];
+
     /**
      * The attributes that are mass assignable.
      *
