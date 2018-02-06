@@ -138,8 +138,8 @@
                 
                 <div class="card-content collapse show">
                   <div class="card-body card-dashboard">
-                    {{-- <table class="table table-striped table-bordered zero-configuration"> --}}
-                    <table class="table display nowrap table-striped table-bordered scroll-horizontal dataTable no-footer table-sm">
+                    {{-- <table class="table table-striped table-bordered zero-configuration scroll-horizontal dataTable table-sm"> --}}
+                    <table class="table nowrap table-striped table-bordered scroll-horizontal dataTable table-sm">
                       <thead>
                         <tr>
 							<th></th>
@@ -162,14 +162,14 @@
 							@if( count($vehicles) > 0 )
 								@foreach($vehicles as $vehicle)
 			                      	<tr>
-			                          	<th></th>
-										<th> 
+			                          	<td></td>
+										<td> 
 											<a href="#" data-toggle="modal" data-target="#default-{{ $vehicle->fldStockNo }}">
 												<?php 
 													echo substr($vehicle->fldYear ." ". $vehicle->fldMake ." ". $vehicle->fldModel ." ". $vehicle->fldModelNo, 0, 40);
 												?>
 											</a> 
-										</th>
+										</td>
 										
 										{{-- modal --}}
 										<div class="modal fade text-left" id="default-{{ $vehicle->fldStockNo }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" style="display: none;" aria-hidden="true">
@@ -237,7 +237,7 @@
 														<div class="col-sm-6">
 															<h3>Vehicle Details</h3>
 															<hr>
-															
+														
 															<div class="row">
 																<div class="col-sm-4">Stock#:</div>
 																<div class="col-sm-8">
@@ -358,22 +358,18 @@
 											  </div>
 											</div>
 										</div>
-										
-										
 
-
-
-										<th></th>
-										<th>{{ $vehicle->fldStockNo }} </th>
-										<th>{{ $vehicle->fldLocationCode }} </th>
-										<th>-</th>
-										<th>{{ $vehicle->fldShortVINNo }}</th>
-										<th>{{ $vehicle->fldCyl }}</th>
-										<th>{{ $vehicle->fldTransmission }}</th>
-										<th>{{ $vehicle->fldExteriorColor }}</th>
-										<th>{{ $vehicle->fldAllCodes }}</th>
-										<th>{{ $vehicle->fldOdometer }}</th>
-										<th>{{ $vehicle->fldRetail }}</th>
+										<td></td>
+										<td>{{ $vehicle->fldStockNo }} </td>
+										<td>{{ $vehicle->fldLocationCode }} </td>
+										<td>-</td>
+										<td>{{ $vehicle->fldShortVINNo }}</td>
+										<td>{{ $vehicle->fldCyl }}</td>
+										<td>{{ $vehicle->fldTransmission }}</td>
+										<td>{{ $vehicle->fldExteriorColor }}</td>
+										<td>{{ $vehicle->fldAllCodes }}</td>
+										<td>{{ $vehicle->fldOdometer }}</td>
+										<td>{{ $vehicle->fldRetail }}</td>
 			                        </tr>
 		                       	@endforeach
 	                        @endif
