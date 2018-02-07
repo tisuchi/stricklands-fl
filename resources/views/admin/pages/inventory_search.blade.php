@@ -176,7 +176,7 @@
 			                          	</td>
 										<td> 
 
-											<a class="call-pop-over-function" href="#" data-toggle="modal" data-id="{{ $vehicle->fldStockNo }}" id="popover-{{ $vehicle->fldStockNo }}" data-trigger="hover" data-placement="right" data-container="body" data-original-title="{{ $vehicle->fldYear ." ". $vehicle->fldMake ." ". $vehicle->fldModel ." ". $vehicle->fldModelNo }}" data-content="STK# {{ $vehicle->fldStockNo }} || Notes: {{ $vehicle->fldComments }}" data-target="#default-{{ $vehicle->fldStockNo }}">
+											<a class="call-pop-over-function call-modal" href="#" data-toggle="modal" data-id="{{ $vehicle->fldStockNo }}" id="popover-{{ $vehicle->fldStockNo }}" data-trigger="hover" data-placement="right" data-container="body" data-original-title="{{ $vehicle->fldYear ." ". $vehicle->fldMake ." ". $vehicle->fldModel ." ". $vehicle->fldModelNo }}" data-content="STK# {{ $vehicle->fldStockNo }} || Notes: {{ $vehicle->fldComments }}" data-target="#default-{{ $vehicle->fldStockNo }}">
 												<?php 
 													if(substr($vehicle->fldYear ." ". $vehicle->fldMake ." ". $vehicle->fldModel ." ". $vehicle->fldModelNo, 0, 20) == false){
 														echo $vehicle->fldYear ." ". $vehicle->fldMake ." ". $vehicle->fldModel ." ". $vehicle->fldModelNo;
@@ -186,7 +186,7 @@
 												?>
 											</a> 
 										</td>
-										<input type="hidden" id="stockId" value="{{ $vehicle->fldStockNo }}">
+										
 
 										
 										
@@ -237,7 +237,6 @@
 																				<div class="carousel-item">
 																					<img src="http://images.stricklands.com/vin/G180337-6.jpg" alt="First slide" width='500' height='375'>
 																				</div> 
-
 																				
 																			</div>
 																			<a class="carousel-control-prev" href="#carousel-example-generic" role="button" data-slide="prev">
@@ -258,107 +257,129 @@
 															<hr>
 														
 															<div class="row">
-																<div class="col-sm-4">Stock#:</div>
+																<div class="col-sm-4">
+																	<span class="text-primary text-bold">Stock#:</span>
+																</div>
 																<div class="col-sm-8">
 																	<span class="text-left">
 																		{{ $vehicle->fldStockNo }}
 																	</span>
 																</div>
 															</div>
-															<hr>
+															
 															
 															<div class="row">
-																<div class="col-sm-4">Short Vin#:</div>
+																<div class="col-sm-4">
+																	<span class="text-primary text-bold">Short Vin#:</span>
+																</div>
 																<div class="col-sm-8">
 																	<span class="text-left">
 																		{{ $vehicle->fldShortVINNo }}
 																	</span>
 																</div>
 															</div>
-															<hr>
+															
 															
 															<div class="row">
-																<div class="col-sm-4">Vin#:</div>
+																<div class="col-sm-4">
+																	<span class="text-primary text-bold">Vin#:</span>
+																</div>
 																<div class="col-sm-8">
 																	<span class="text-left">
 																		{{ $vehicle->fldVINNo }}
 																	</span>
 																</div>
 															</div>
-															<hr>
+															
 															
 															<div class="row">
-																<div class="col-sm-4">Color#:</div>
+																<div class="col-sm-4">
+																	<span class="text-primary text-bold">Color#:</span>
+																</div>
 																<div class="col-sm-8">
 																	<span class="text-left">
 																		{{ $vehicle->fldExteriorColor }}
 																	</span>
 																</div>
 															</div>
-															<hr>
+															
 															
 															<div class="row">
-																<div class="col-sm-4">Engine#:</div>
+																<div class="col-sm-4">
+																	<span class="text-primary text-bold">Engine#:</span>
+																</div>
 																<div class="col-sm-8">
 																	<span class="text-left">
 																		{{ $vehicle->fldCyl }}
 																	</span>
 																</div>
 															</div>
-															<hr>
+															
 															
 															<div class="row">
-																<div class="col-sm-4">Transmission#:</div>
+																<div class="col-sm-4">
+																	<span class="text-primary text-bold">Transmission#:</span>
+																</div>
 																<div class="col-sm-8">
 																	<span class="text-left">
 																		{{ $vehicle->fldTransmission }}
 																	</span>
 																</div>
 															</div>
-															<hr>
+															
 															
 															<div class="row">
-																<div class="col-sm-4">KM's#:</div>
+																<div class="col-sm-4">
+																	<span class="text-primary text-bold">KM's#:</span>
+																</div>
 																<div class="col-sm-8">
 																	<span class="text-left">
 																		{{ $vehicle->fldOdometer }}
 																	</span>
 																</div>
 															</div>
-															<hr>
+															
 															
 															<div class="row">
-																<div class="col-sm-4">Price#:</div>
+																<div class="col-sm-4">
+																	<span class="text-primary text-bold">Price#:</span>
+																</div>
 																<div class="col-sm-8">
 																	<span class="text-left">
 																		{{ $vehicle->fldOdometer }}
 																	</span>
 																</div>
 															</div>
-															<hr>
+															
 															
 															<div class="row">
-																<div class="col-sm-4">Location#:</div>
+																<div class="col-sm-4">
+																	<span class="text-primary text-bold">Location#:</span>
+																</div>
 																<div class="col-sm-8">
 																	<span class="text-left">
 																		{{ $vehicle->fldLocationCode }}
 																	</span>
 																</div>
 															</div>
-															<hr>
+															
 															
 															<div class="row">
-																<div class="col-sm-4">Website URL#:</div>
+																<div class="col-sm-4">
+																	<span class="text-primary text-bold">Website URL#:</span>
+																</div>
 																<div class="col-sm-8">
 																	<span class="text-left">
-																		<a href="http://www.stricklands.com/detail.php?stockno={{ $vehicle->fldStockNo }}" target="_blank">Website Link</a>
+																		<a class="text-success" href="http://www.stricklands.com/detail.php?stockno={{ $vehicle->fldStockNo }}" target="_blank">Website Link</a>
 																	</span>
 																</div>
 															</div>
-															<hr>
+															
 															
 															<div class="row">
-																<div class="col-sm-4">Info#:</div>
+																<div class="col-sm-4">
+																	<span class="text-primary text-bold">Info#:</span>
+																</div>
 																<div class="col-sm-8">
 																	<span class="text-left">
 																		{{ $vehicle->fldComments }}
@@ -427,19 +448,20 @@
 <script src="{{asset('app-assets/js/scripts/tables/datatables/datatable-basic.js')}}" type="text/javascript"></script>
 
 <script>
-	/*$(document).ready(function(){
-		$('#inventory-table').dataTable( {
-		  "autoWidth": false
-		} );
-	});*/
 
-	//var id = $('#stockId').val();
-	//$("#popover-id").popover({ trigger: "hover" });
+
 	$('.call-pop-over-function').hover(
 		function() {
 			var id = $( this ).attr("data-id");
 			$("#popover-"+id).popover({ trigger: "hover" });
-			//alert(id);
+		}
+	);
+
+
+	$('.call-modal').hover(
+		function() {
+			var id = $( this ).attr("data-id");
+			$("#popover-"+id).popover({ trigger: "hover" });
 		}
 	);
 </script>
