@@ -2,6 +2,15 @@
 
 @section('content')
 
+<style>
+	.custom-table{
+		font-size: 12px;
+		width: auto;
+	}
+</style>
+
+
+
 <link rel="stylesheet" type="text/css" href="{{asset('app-assets/vendors/css/tables/datatable/datatables.min.css')}}">
 
 <!-- Main Content begin -->
@@ -139,7 +148,7 @@
                 <div class="card-content collapse show">
                   <div class="card-body card-dashboard">
                     {{-- <table class="table table-striped table-bordered zero-configuration scroll-horizontal dataTable table-sm"> --}}
-                    <table class="table nowrap table-striped table-bordered scroll-horizontal dataTable table-sm">
+                    <table class="table nowrap table-striped table-bordered scroll-horizontal table-responsive-sm table-xs compact" cellspacing="0" width="100%">
                       <thead>
                         <tr>
 							<th></th>
@@ -162,14 +171,24 @@
 							@if( count($vehicles) > 0 )
 								@foreach($vehicles as $vehicle)
 			                      	<tr>
-			                          	<td></td>
+			                          	<td>
+			                          		<i class="fa fa-hand-o-up"></i>
+			                          	</td>
 										<td> 
-											<a href="#" data-toggle="modal" data-target="#default-{{ $vehicle->fldStockNo }}">
+
+											<a class="call-pop-over-function" href="#" data-toggle="modal" data-id="{{ $vehicle->fldStockNo }}" id="popover-{{ $vehicle->fldStockNo }}" data-trigger="hover" data-placement="right" data-container="body" data-original-title="{{ $vehicle->fldYear ." ". $vehicle->fldMake ." ". $vehicle->fldModel ." ". $vehicle->fldModelNo }}" data-content="STK# {{ $vehicle->fldStockNo }} || Notes: {{ $vehicle->fldComments }}" data-target="#default-{{ $vehicle->fldStockNo }}">
 												<?php 
-													echo substr($vehicle->fldYear ." ". $vehicle->fldMake ." ". $vehicle->fldModel ." ". $vehicle->fldModelNo, 0, 40);
+													if(substr($vehicle->fldYear ." ". $vehicle->fldMake ." ". $vehicle->fldModel ." ". $vehicle->fldModelNo, 0, 20) == false){
+														echo $vehicle->fldYear ." ". $vehicle->fldMake ." ". $vehicle->fldModel ." ". $vehicle->fldModelNo;
+													} else {
+														echo substr($vehicle->fldYear ." ". $vehicle->fldMake ." ". $vehicle->fldModel ." ". $vehicle->fldModelNo, 0, 20) . "...";														
+													}
 												?>
 											</a> 
 										</td>
+										<input type="hidden" id="stockId" value="{{ $vehicle->fldStockNo }}">
+
+										
 										
 										{{-- modal --}}
 										<div class="modal fade text-left" id="default-{{ $vehicle->fldStockNo }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" style="display: none;" aria-hidden="true">
@@ -367,7 +386,7 @@
 										<td>{{ $vehicle->fldCyl }}</td>
 										<td>{{ $vehicle->fldTransmission }}</td>
 										<td>{{ $vehicle->fldExteriorColor }}</td>
-										<td>{{ $vehicle->fldAllCodes }}</td>
+										<td>{{ substr($vehicle->fldAllCodes, 0, 10) }}</td>
 										<td>{{ $vehicle->fldOdometer }}</td>
 										<td>{{ $vehicle->fldRetail }}</td>
 			                        </tr>
@@ -406,5 +425,25 @@
 <script src="{{asset('admin_assets/js/mainjs/inventory_search.js')}}" type="text/javascript"></script>
 <script src="{{asset('app-assets/vendors/js/tables/datatable/datatables.min.js')}}" type="text/javascript"></script>
 <script src="{{asset('app-assets/js/scripts/tables/datatables/datatable-basic.js')}}" type="text/javascript"></script>
+
+<script>
+	/*$(document).ready(function(){
+		$('#inventory-table').dataTable( {
+		  "autoWidth": false
+		} );
+	});*/
+
+	//var id = $('#stockId').val();
+	//$("#popover-id").popover({ trigger: "hover" });
+	$('.call-pop-over-function').hover(
+		function() {
+			var id = $( this ).attr("data-id");
+			$("#popover-"+id).popover({ trigger: "hover" });
+			//alert(id);
+		}
+	);
+</script>
+
+
 
 @stop
