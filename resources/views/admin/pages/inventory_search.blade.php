@@ -413,7 +413,9 @@
 
 										<td>
 											<a href="" data-toggle="modal" data-target="#default-{{ $vehicle->fldStockNo }}" style="color: #000;">
-												<img src="{{ env('BASE_URL') }}/images/icon.png" alt="">
+												<center>
+													<img src="{{ env('BASE_URL') }}/images/icon.png" alt="">
+												</center>
 											</a>
 										</td>
 										<td>{{ $vehicle->fldStockNo }} </td>
