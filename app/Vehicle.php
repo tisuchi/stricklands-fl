@@ -16,6 +16,12 @@ class Vehicle extends Model
     }
 
 
+    public static function scopeMakeinfoPaginate($query, $select= 'fldMake', $orderby = 'fldMake', $paginate=100)
+    {
+        return $query->select($select)->orderBy($orderby)->distinct()->paginate($paginate);
+    }
+
+
 
 
     /**

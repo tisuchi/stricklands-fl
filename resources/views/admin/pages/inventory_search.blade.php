@@ -176,7 +176,7 @@
 			                          	</td>
 										<td> 
 
-											<a class="call-pop-over-function call-modal" href="#" data-toggle="modal" data-id="{{ $vehicle->fldStockNo }}" id="popover-{{ $vehicle->fldStockNo }}" data-trigger="hover" data-placement="right" data-container="body" data-original-title="{{ $vehicle->fldYear ." ". $vehicle->fldMake ." ". $vehicle->fldModel ." ". $vehicle->fldModelNo }}" data-content="STK# {{ $vehicle->fldStockNo }} || Notes: {{ $vehicle->fldComments }}" data-target="#default-{{ $vehicle->fldStockNo }}">
+											<a class="call-pop-over-function call-modal" href="?{{ $vehicle->fldStockNo }}" data-toggle="modal" data-id="{{ $vehicle->fldStockNo }}" id="popover-{{ $vehicle->fldStockNo }}" data-trigger="hover" data-placement="right" data-container="body" data-original-title="{{ $vehicle->fldYear ." ". $vehicle->fldMake ." ". $vehicle->fldModel ." ". $vehicle->fldModelNo }}" data-content="STK# {{ $vehicle->fldStockNo }} || Notes: {{ $vehicle->fldComments }}" data-target="#default-{{ $vehicle->fldStockNo }}">
 												<?php 
 													if(substr($vehicle->fldYear ." ". $vehicle->fldMake ." ". $vehicle->fldModel ." ". $vehicle->fldModelNo, 0, 20) == false){
 														echo $vehicle->fldYear ." ". $vehicle->fldMake ." ". $vehicle->fldModel ." ". $vehicle->fldModelNo;
@@ -188,8 +188,7 @@
 										</td>
 										
 
-										
-										
+								
 										{{-- modal --}}
 										<div class="modal fade text-left" id="default-{{ $vehicle->fldStockNo }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" style="display: none;" aria-hidden="true">
 											  <div class="modal-dialog modal-lg" role="document">
@@ -218,9 +217,29 @@
 																			<div class="carousel-inner" role="listbox">
 																				
 																				
-																				<div class="carousel-item active">
+																				{{-- <div class="carousel-item active">
 																					<img src="http://images.stricklands.com/vin/G180337-2.jpg" alt="First slide" width='500' height='375'>
-																				</div> 
+																				</div>  --}}
+
+																				<?php 
+																					
+																					for ($i=2;$i<=3;$i++)
+																			        {
+																			        	/*$name = "/home/adminstrick/images.stricklands.com/vin/";
+																						$name .= $row_rs_list['fldStockNo'];						
+																						$name .= "-" . $i . ".jpg";*/
+																			        	//if (@GetImageSize($name)) {}
+																			            $name = "http://images.stricklands.com/vin/$vehicle->fldStockNo-".$i . ".jpg";
+																			            if ($i == 2) {
+																			            	echo '<div class="carousel-item active">';
+																			            } else {
+																			            	echo '<div class="carousel-item">';
+																			            }
+																			            	echo '<img src="'.$name.'" alt="" width="500" height="375"/>';
+																			            	echo '</div>';
+																			        }
+																			        
+																				?>
 
 																				<div class="carousel-item">
 																					<img src="http://images.stricklands.com/vin/G180337-3.jpg" alt="First slide" width='500' height='375'>
@@ -464,6 +483,8 @@
 			$("#popover-"+id).popover({ trigger: "hover" });
 		}
 	);
+
+
 </script>
 
 

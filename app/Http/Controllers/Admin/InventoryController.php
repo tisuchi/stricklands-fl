@@ -30,11 +30,13 @@ class InventoryController extends Controller
     public function showSearch()
     {
 
+
         //fetching data from database for Dropdown menu in Search Page
     	$locations = Alocation::where('id','<>',100)->orderBy('fldLocationOrder')->get();
     	$statuscodes = Astatuscode::orderBy('fld_desc','desc')->get();
     	$types = Atype::get();
-    	$makes = Vehicle::Makeinfo();
+        //$makes = Vehicle::Makeinfo();
+    	$makes = Vehicle::MakeinfoPaginate();
     	$vehicles = null;
 
     	//check if there is a parameter in url, start searching
@@ -43,6 +45,15 @@ class InventoryController extends Controller
     	}
     	
     	return view('admin.pages.inventory_search', compact('locations', 'statuscodes', 'types', 'makes', 'vehicles'));
+    }
+
+
+
+
+    function URLIsValid($URL){
+        $headers = @get_headers($URL);
+        preg_match("/ [45][0-9]{2} /", (string)$headers[0] , $match);
+        return count($match) === 0;
     }
 
 
