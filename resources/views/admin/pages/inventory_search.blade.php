@@ -2,13 +2,6 @@
 
 @section('content')
 
-<style>
-	.custom-table{
-		font-size: 12px;
-		width: auto;
-	}
-</style>
-
 
 
 <link rel="stylesheet" type="text/css" href="{{asset('app-assets/vendors/css/tables/datatable/datatables.min.css')}}">
@@ -418,7 +411,11 @@
 											</div>
 										</div>
 
-										<td></td>
+										<td>
+											<a href="" data-toggle="modal" data-target="#default-{{ $vehicle->fldStockNo }}" style="color: #000;">
+												&#9679;
+											</a>
+										</td>
 										<td>{{ $vehicle->fldStockNo }} </td>
 										<td>{{ $vehicle->fldLocationCode }} </td>
 										<td>-</td>
