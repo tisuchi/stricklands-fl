@@ -61,7 +61,6 @@ class InventoryController extends Controller
             $makes = Vehicle::MakeinfoPaginate();    
         }
 
-        return $makes;
     	
     	$vehicles = null;
 
