@@ -350,9 +350,9 @@
           <ul class="menu-content">
             <li><a href="{{ route('admin-search') }}" class="menu-item">Search</a>
             </li>
-            <li><a href="{{ ENV('BASE_URL') }}admin/inventory/4days" class="menu-item">4 Days</a>
+            <li><a href="{{ route('admin-search') }}?vLoc=All&vNewUsed=All&vType=All&vRetail=80000&vYear=All&vMake=All&vModel=&vOdometer=All&vFourDays=Y" class="menu-item">4 Days</a>
             </li>
-            <li><a href="{{ ENV('BASE_URL') }}admin/inventory/14days" class="menu-item">14 Days</a>
+            <li><a href="{{ route('admin-search') }}?vLoc=All&vNewUsed=All&vType=All&vRetail=80000&vYear=All&vMake=All&vModel=&vOdometer=All&v14Days=Y" class="menu-item">14 Days</a>
             </li>
             <li><a href="{{ ENV('BASE_URL') }}admin/inventory/print" class="menu-item">Print</a>
             </li>

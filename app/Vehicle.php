@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Vehicle extends Model
@@ -19,6 +20,22 @@ class Vehicle extends Model
     public static function scopeMakeinfoPaginate($query, $select= 'fldMake', $orderby = 'fldMake', $paginate=100)
     {
         return $query->select($select)->orderBy($orderby)->distinct()->paginate($paginate);
+    }
+
+
+    /**
+     * Return vehicle records with number of days
+     * @param  [type]  $query    [description]
+     * @param  [type]  $days     [description]
+     * @param  string  $select   [description]
+     * @param  string  $orderby  [description]
+     * @param  integer $paginate [description]
+     * @return [type]            [description]
+     */
+    public static function scopeMakeinfoWithNumberOfDays($query, $days, $select= 'fldMake', $orderby = 'fldMake', $paginate=100)
+    {
+        $date = new Carbon;
+        return $query->select($select)->where('fldDateReceived', '>', $date->subDays($days))->orderBy($orderby)->distinct()->paginate($paginate);
     }
 
 

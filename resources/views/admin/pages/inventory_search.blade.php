@@ -13,7 +13,7 @@
       
 			<div class="content-header row">
 				<div class="col-12">
-				<h1>Vehicle Inventory</h1>
+				<h1>Vehicle Inventory {{ !empty($numberofdays)? "- Last $numberofdays Days" : ''}} </h1>
 				</div>
 			</div>
 			
@@ -34,6 +34,12 @@
 
         <section id="configuration">
         	<form method="GET" action="{{ route('admin-search') }}">
+        		@if($numberofdays == 4)
+        			<input type="hidden" value="Y" name="vFourDays" />
+        		@endif 
+        		@if($numberofdays == 14)
+					<input type="hidden" value="Y" name="v14Days" />
+        		@endif
 					<div class="row">
 						<div class="col-md-2">
 							<div class="form-group">
