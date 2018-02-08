@@ -426,7 +426,8 @@
 										</td>
 										<td>{{ $vehicle->fldStockNo }} </td>
 										<td>{{ $vehicle->fldLocationCode }} </td>
-										<td>-</td>
+										<td> {{ round((strtotime(date('Y-m-d')) - strtotime($vehicle->fldDateReceived)) / (60 * 60 * 24), 0, PHP_ROUND_HALF_DOWN) }}</td>
+										
 										<td>{{ $vehicle->fldShortVINNo }}</td>
 										<td>{{ $vehicle->fldCyl }}</td>
 										<td>{{ $vehicle->fldTransmission }}</td>

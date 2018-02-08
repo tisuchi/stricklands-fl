@@ -30,6 +30,7 @@ class InventoryController extends Controller
     public function showSearch()
     {
 
+
         //for 4 days
             //fldDateReceived > (SUBDATE(CURDATE(), INTERVAL '4' DAY))";
         //for 14 days
@@ -68,6 +69,9 @@ class InventoryController extends Controller
     	if(Request()->input('filter')){
 			$vehicles = $this->inventoryRepository->doSearch(request()->all());
     	}
+
+
+
     	
     	return view('admin.pages.inventory_search', compact('locations', 'statuscodes', 'types', 'makes', 'vehicles', 'numberofdays'));
     }

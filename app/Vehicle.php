@@ -71,4 +71,17 @@ class Vehicle extends Model
     }
 
 
+
+    public static function countDays($days)
+    {
+        //$today = Carbon::now();
+        //return date('Y-m-d') - $days;
+        //return Carbon::now() - $days;
+        $parseDate = Carbon::parse($days);
+        echo Carbon::now() - $parseDate;
+
+
+    }
+
+
 }
