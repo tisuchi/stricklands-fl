@@ -3,8 +3,8 @@ ToDos
 
 
 ________ 8 February 2018 ________
-1. 4 Days Inventory
-2. 14 Days Inventory
+OK		==		1. 4 Days Inventory
+OK		==		2. 14 Days Inventory
 
 
 
