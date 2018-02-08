@@ -3,12 +3,13 @@
 
 use DB;
 use App\Vehicle;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class InventoryRepository {
 
     
-    public function doSearch($allRequests = [])
+    public function doSearch($allRequests = [], $numberofdays = null)
     {
     	//remove all empty array elements
     	$allRecords = array_filter($allRequests, 'strlen');
@@ -16,8 +17,17 @@ class InventoryRepository {
 		$vLoc=$vNewUsed=$vType=$vOdometer=$vYear=$vMake= 'all';
 
 
+		
+		//$vehicles = Vehicle::latest('fldDateReceived');
+
 		//main eloquent
-		$vehicles = Vehicle::latest('fldDateReceived');
+		//check days 
+		if ($numberofdays !== null) {
+			$date = new Carbon;
+			$vehicles = Vehicle::latest('fldDateReceived')->where('fldDateReceived', '>', $date->subDays($numberofdays));
+        } else{
+            $vehicles = Vehicle::latest('fldDateReceived');
+        }
 
 
 		if ( Request()->get('vModel') != '' )	//searching model

@@ -56,19 +56,24 @@ class InventoryController extends Controller
     	$locations = Alocation::where('id','<>',100)->orderBy('fldLocationOrder')->get();
     	$statuscodes = Astatuscode::orderBy('fld_desc','desc')->get();
     	$types = Atype::get();
+        $vehicles = null;
+
         if ($numberofdays !== '') {
-            $makes = Vehicle::MakeinfoWithNumberOfDays($numberofdays);    
+            $makes = Vehicle::MakeinfoWithNumberOfDays($numberofdays);
+
+            //check if there is a parameter in url, start searching
+            if(Request()->input('filter')){
+                $vehicles = $this->inventoryRepository->doSearch(request()->all(), $numberofdays);
+            }
         } else{
             $makes = Vehicle::MakeinfoPaginate();    
+            if(Request()->input('filter')){
+                $vehicles = $this->inventoryRepository->doSearch(request()->all());
+            }
         }
 
     	
-    	$vehicles = null;
-
-    	//check if there is a parameter in url, start searching
-    	if(Request()->input('filter')){
-			$vehicles = $this->inventoryRepository->doSearch(request()->all());
-    	}
+    	
 
 
 
