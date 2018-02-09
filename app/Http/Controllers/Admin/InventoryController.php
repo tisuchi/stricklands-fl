@@ -63,7 +63,7 @@ class InventoryController extends Controller
             }
         }
     	
-    	return view('admin.pages.inventory_search', compact('locations', 'statuscodes', 'types', 'makes', 'vehicles', 'numberofdays'));
+    	return view('admin.inventory.inventory-search', compact('locations', 'statuscodes', 'types', 'makes', 'vehicles', 'numberofdays'));
     }
 
 
@@ -71,9 +71,10 @@ class InventoryController extends Controller
 
 
 
+    
     public function countInventory()
     {
-        return "working fine";
+        return view('admin.inventory.inventory-count');
     }
 
 
