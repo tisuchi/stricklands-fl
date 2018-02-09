@@ -100,6 +100,28 @@ class Vehicle extends Model
 
 
 
+    public static function scopeCountPrice($query, $statuscode, $statusoperator = null, $type, $minretail, $maxretail, $location = null)
+    {
+
+        if ($location !== null) {
+            return $query->where('fldStatusCode', $statusoperator, $statuscode)
+                    ->where('fldType', $type)
+                    ->where('fldLocation', $location)
+                    ->whereBetween('fldRetail', [$minretail, $maxretail])
+                    ->count();
+        } else {
+            return $query->where('fldStatusCode', $statusoperator, $statuscode)
+                    ->where('fldType', $type)
+                    ->whereBetween('fldRetail', [$minretail, $maxretail])
+                    ->count();
+
+        }
+        
+    }
+
+
+
+
 
 
 
