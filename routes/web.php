@@ -13,10 +13,19 @@ Route::get('logout', 'Admin\AuthController@doLogout')->name('logout');
 
 Route::group(['middleware' => 'auth'], function () {
 	//admin/inventory/search
+	
 	Route::group(['prefix' => 'admin'], function (){
+		
 		//its for inventory
 		Route::group(['prefix' => 'inventory'], function (){
-			Route::get('search', 'Admin\InventoryController@showSearch')->name('admin-search');
+			Route::get('search', 'Admin\InventoryController@showSearch')->name('inventory-search');
+			Route::get('count', 'Admin\InventoryController@countInventory')->name('inventory-count');
+
 		});
+	
+
 	});
+
+
+
 });

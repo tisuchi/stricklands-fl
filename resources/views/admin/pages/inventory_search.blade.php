@@ -33,7 +33,7 @@
       <div class="content-body">
 
         <section id="configuration">
-        	<form method="GET" action="{{ route('admin-search') }}">
+        	<form method="GET" action="{{ route('inventory-search') }}">
         		@if($numberofdays == 4)
         			<input type="hidden" value="Y" name="vFourDays" />
         		@endif 

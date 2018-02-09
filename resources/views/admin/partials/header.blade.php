@@ -348,15 +348,15 @@
         <li class=" nav-item">
           <a href="#"><i class="fa fa-list" aria-hidden="true"></i><span data-i18n="" class="menu-title">Inventory</span></a>
           <ul class="menu-content">
-            <li><a href="{{ route('admin-search') }}" class="menu-item">Search</a>
+            <li><a href="{{ route('inventory-search') }}" class="menu-item">Search</a>
             </li>
-            <li><a href="{{ route('admin-search') }}?vLoc=All&vNewUsed=All&vType=All&vRetail=80000&vYear=All&vMake=All&vModel=&vOdometer=All&vFourDays=Y" class="menu-item">4 Days</a>
+            <li><a href="{{ route('inventory-search') }}?vLoc=All&vNewUsed=All&vType=All&vRetail=80000&vYear=All&vMake=All&vModel=&vOdometer=All&vFourDays=Y" class="menu-item">4 Days</a>
             </li>
-            <li><a href="{{ route('admin-search') }}?vLoc=All&vNewUsed=All&vType=All&vRetail=80000&vYear=All&vMake=All&vModel=&vOdometer=All&v14Days=Y" class="menu-item">14 Days</a>
+            <li><a href="{{ route('inventory-search') }}?vLoc=All&vNewUsed=All&vType=All&vRetail=80000&vYear=All&vMake=All&vModel=&vOdometer=All&v14Days=Y" class="menu-item">14 Days</a>
             </li>
             <li><a href="{{ ENV('BASE_URL') }}admin/inventory/print" class="menu-item">Print</a>
             </li>
-            <li><a href="{{ ENV('BASE_URL') }}admin/inventory/inventcount" class="menu-item">Inventory Count</a>
+            <li><a href="{{ route('inventory-count') }}" class="menu-item">Inventory Count</a>
             </li>
             <li><a href="{{ ENV('BASE_URL') }}admin/inventory/inventdescrip" class="menu-item">Inventory Descriptions</a>
             </li>
