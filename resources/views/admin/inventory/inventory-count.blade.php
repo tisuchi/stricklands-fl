@@ -152,13 +152,19 @@
 	                    <hr>
 	                   	<ul class="nav nav-tabs">
 	                      <li class="nav-item">
-	                        <a class="nav-link active" id="base-tab1" data-toggle="tab" aria-controls="tab1" href="#tab1" aria-expanded="true">Tab 1</a>
+	                        <a class="nav-link active" id="base-tab1" data-toggle="tab" aria-controls="tab1" href="#tab1" aria-expanded="true">Stratford Automart</a>
 	                      </li>
 	                      <li class="nav-item">
-	                        <a class="nav-link" id="base-tab2" data-toggle="tab" aria-controls="tab2" href="#tab2" aria-expanded="false">Tab 2</a>
+	                        <a class="nav-link" id="base-tab2" data-toggle="tab" aria-controls="tab2" href="#tab2" aria-expanded="false">Toyota</a>
 	                      </li>
 	                      <li class="nav-item">
-	                        <a class="nav-link" id="base-tab3" data-toggle="tab" aria-controls="tab3" href="#tab3" aria-expanded="false">Tab 3</a>
+	                        <a class="nav-link" id="base-tab3" data-toggle="tab" aria-controls="tab3" href="#tab3" aria-expanded="false">GM</a>
+	                      </li>
+	                      <li class="nav-item">
+	                        <a class="nav-link" id="base-tab3" data-toggle="tab" aria-controls="tab3" href="#tab3" aria-expanded="false">Windsor Automart</a>
+	                      </li>
+	                      <li class="nav-item">
+	                        <a class="nav-link" id="base-tab3" data-toggle="tab" aria-controls="tab3" href="#tab3" aria-expanded="false">All</a>
 	                      </li>
 	                    </ul>
 
