@@ -1,0 +1,6 @@
+===== Models =====
+1. Alocation					a_tbl_locations	
+2. Astatuscode					a_tbl_status_code							
+3. Atype						a_tbl_types						
+4. User							a_tbl_contact
+5. Vehicle						tblvehicles
