@@ -72,6 +72,36 @@ class Vehicle extends Model
 
 
 
+    /**
+     * Count number of Cars based on given params
+     * @param  [type] $query      [description]
+     * @param  [type] $statuscode [description]
+     * @param  [type] $type       [description]
+     * @param  [type] $key        [description]
+     * @return [type]             [description]
+     */
+    public static function scopeCountCars($query, $statuscode, $statusoperator = null, $type, $key, $operator = null)
+    {
+        if ($operator !== null) {
+            return $query->where('fldStatusCode', $statusoperator, $statuscode)
+                    ->where('fldType', $type)
+                    ->where('fldKey1', $operator , $key)
+                    ->count();
+        } else {
+            return $query->where('fldStatusCode', $statusoperator, $statuscode)
+                    ->where('fldType', $type)
+                    ->where('fldKey1', $key)
+                    ->count();
+        }
+        
+    }
+
+
+
+
+
+
+
 
 
 }

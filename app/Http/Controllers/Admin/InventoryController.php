@@ -71,10 +71,74 @@ class InventoryController extends Controller
 
 
 
-    
+
     public function countInventory()
     {
-        return view('admin.inventory.inventory-count');
+        //New Cars
+        //Ready for Sale
+        $newreadycars = (new Vehicle)->CountCars('N', '=', 'C', 'P', '<>');
+        $newreadysuvs = (new Vehicle)->CountCars('N', '=', 'S', 'P', '<>');
+        $newreadyvans = (new Vehicle)->CountCars('N', '=', 'V', 'P', '<>');
+        $newreadytrucks = (new Vehicle)->CountCars('N', '=', 'T', 'P', '<>');
+        
+        //SOLD NEW CARS
+        $newsoldcars = (new Vehicle)->CountCars('N', '=', 'C', 'P');
+        $newsoldsuvs = (new Vehicle)->CountCars('N', '=', 'S', 'P');
+        $newsoldvans = (new Vehicle)->CountCars('N', '=', 'V', 'P');
+        $newsoldtrucks = (new Vehicle)->CountCars('N', '=', 'T', 'P');
+
+
+        //Used Car
+        //Ready for Sale
+        $usedreadycars = (new Vehicle)->CountCars('N', '<>', 'C', 'P', '<>');
+        $usedreadysuvs = (new Vehicle)->CountCars('N', '<>', 'S', 'P', '<>');
+        $usedreadyvans = (new Vehicle)->CountCars('N', '<>', 'V', 'P', '<>');
+        $usedreadytrucks = (new Vehicle)->CountCars('N', '<>', 'T', 'P', '<>');
+        
+        //SOLD NEW CARS
+        $usedsoldcars = (new Vehicle)->CountCars('N', '<>', 'C', 'P');
+        $usedsoldsuvs = (new Vehicle)->CountCars('N', '<>', 'S', 'P');
+        $usedsoldvans = (new Vehicle)->CountCars('N', '<>', 'V', 'P');
+        $usedsoldtrucks = (new Vehicle)->CountCars('N', '<>', 'T', 'P');
+
+
+
+
+
+
+
+
+        $newreadyforsale = [
+                            'newreadycars'  => $newreadycars,
+                            'newreadysuvs'  => $newreadysuvs,
+                            'newreadyvans'  => $newreadyvans,
+                            'newreadytrucks'  => $newreadytrucks,
+                        ];
+
+        $newsold = [
+                            'newsoldcars'  => $newsoldcars,
+                            'newsoldsuvs'  => $newsoldsuvs,
+                            'newsoldvans'  => $newsoldvans,
+                            'newsoldtrucks'  => $newsoldtrucks,
+                        ];
+
+
+        $usedreadyforsale = [
+                            'usedreadycars'  => $usedreadycars,
+                            'usedreadysuvs'  => $usedreadysuvs,
+                            'usedreadyvans'  => $usedreadyvans,
+                            'usedreadytrucks'  => $usedreadytrucks,
+                        ];
+
+        $usedsold = [
+                            'usedsoldcars'  => $usedsoldcars,
+                            'usedsoldsuvs'  => $usedsoldsuvs,
+                            'usedsoldvans'  => $usedsoldvans,
+                            'usedsoldtrucks'  => $usedsoldtrucks,
+                        ];
+
+
+        return view('admin.inventory.inventory-count', compact('newreadyforsale', 'newsold', 'usedreadyforsale', 'usedsold'));
     }
 
 
