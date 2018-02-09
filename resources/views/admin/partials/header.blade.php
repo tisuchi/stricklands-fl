@@ -358,7 +358,7 @@
             </li>
             <li><a href="{{ route('inventory-count') }}" class="menu-item">Inventory Count</a>
             </li>
-            <li><a href="{{ ENV('BASE_URL') }}admin/inventory/inventdescrip" class="menu-item">Inventory Descriptions</a>
+            <li><a href="{{ route('inventory-description') }}" class="menu-item">Inventory Descriptions</a>
             </li>
             <li><a href="{{ ENV('BASE_URL') }}admin/inventory/tradeinlist" class="menu-item">Trade in List View</a>
             </li>

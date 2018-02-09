@@ -72,6 +72,12 @@ class InventoryController extends Controller
 
 
 
+
+
+    /**
+     * Count Inventory Page
+     * @return [type] [description]
+     */
     public function countInventory()
     {
         //New Cars
@@ -507,6 +513,29 @@ class InventoryController extends Controller
 
 
         return view('admin.inventory.inventory-count', compact('newreadyforsale', 'newsold', 'usedreadyforsale', 'usedsold', 'sacars', 'sasuv', 'savan', 'satruck', 'tcars', 'tsuv', 'tvan', 'ttruck', 'gmcars', 'gmsuv', 'gmvan', 'gmtruck', 'wacars', 'wasuv', 'wavan', 'watruck', 'acars', 'asuv', 'avan', 'atruck'));
+    }
+
+
+
+
+
+
+
+    public function showDescription()
+    {
+
+        //fetching data from database for Dropdown menu in Search Page
+        $locations = Alocation::where('id','<>',100)->orderBy('fldLocationOrder')->get();
+        $statuscodes = Astatuscode::orderBy('fld_desc','desc')->get();
+        $types = Atype::get();
+        $vehicles = null;
+
+        $makes = Vehicle::MakeinfoPaginate();    
+        if(Request()->input('filter')){
+            $vehicles = $this->inventoryRepository->doSearch(request()->all());
+        }
+        
+        return view('admin.inventory.inventory-description', compact('locations', 'statuscodes', 'types', 'makes', 'vehicles'));
     }
 
 

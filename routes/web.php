@@ -20,6 +20,7 @@ Route::group(['middleware' => 'auth'], function () {
 		Route::group(['prefix' => 'inventory'], function (){
 			Route::get('search', 'Admin\InventoryController@showSearch')->name('inventory-search');
 			Route::get('count', 'Admin\InventoryController@countInventory')->name('inventory-count');
+			Route::get('description', 'Admin\InventoryController@showDescription')->name('inventory-description');
 
 		});
 	
