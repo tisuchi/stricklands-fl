@@ -534,8 +534,10 @@ class InventoryController extends Controller
         if(Request()->input('filter')){
             $vehicles = $this->inventoryRepository->doSearch(request()->all());
         }
+
+        $vehiclewithrelation= (new Vehicle)->with('description')->get();
         
-        return view('admin.inventory.inventory-description', compact('locations', 'statuscodes', 'types', 'makes', 'vehicles'));
+        return view('admin.inventory.inventory-description', compact('locations', 'statuscodes', 'types', 'makes', 'vehicles', 'vehiclewithrelation'));
     }
 
 

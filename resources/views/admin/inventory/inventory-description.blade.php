@@ -400,12 +400,14 @@
 																		  </div>
 																		  <div class="form-group">
 																		    <label for="exampleInputPassword1">Detailed Description:</label>
-																		    <textarea class="form-control" id="exampleFormControlTextarea1" name="description" placeholder="Enter Description" rows="3">{{ $vehicle->fldDescription }}</textarea>
+																		    <textarea class="form-control" id="exampleFormControlTextarea1" name="description" placeholder="Enter Description" rows="3">{{ !empty($vehiclewithrelation->fldDescription) ? $vehiclewithrelation->fldDescription : '' }}</textarea>
 
 																		  </div>
 																		  
 																		  <div class="row">
-																		  	<div class="col-sm-6"></div>
+																		  	<div class="col-sm-6">
+																		  		Input By: Add User relationship here
+																		  	</div>
 																		  	<div class="col-sm-6">
 																		  		<div class="form-check">
 																		    		<input type="checkbox" class="form-check-input" id="exampleCheck1">

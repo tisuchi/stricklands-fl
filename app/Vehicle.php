@@ -99,7 +99,17 @@ class Vehicle extends Model
 
 
 
-
+    /**
+     * Count Vehcile Price for Vehicle Count Route
+     * @param  [type] $query          [description]
+     * @param  [type] $statuscode     [description]
+     * @param  [type] $statusoperator [description]
+     * @param  [type] $type           [description]
+     * @param  [type] $minretail      [description]
+     * @param  [type] $maxretail      [description]
+     * @param  [type] $location       [description]
+     * @return [type]                 [description]
+     */
     public static function scopeCountPrice($query, $statuscode, $statusoperator = null, $type, $minretail, $maxretail, $location = null)
     {
 
@@ -117,6 +127,18 @@ class Vehicle extends Model
 
         }
         
+    }
+
+
+
+
+    /**
+     * A Vehicle has one Description
+     * @return [type] [description]
+     */
+    public function description()
+    {
+        return $this->hasOne('App\Description', 'fldStockNo', 'fldStockNo');
     }
 
 
