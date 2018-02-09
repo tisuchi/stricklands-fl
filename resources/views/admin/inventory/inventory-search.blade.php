@@ -16,19 +16,7 @@
 				<h1>Vehicle Inventory {{ !empty($numberofdays)? "- Last $numberofdays Days" : ''}} </h1>
 				</div>
 			</div>
-			
-			<div class="row breadcrumbs-top">
-				<div class="breadcrumb-wrapper col-12">
-					<ol class="breadcrumb">
-						<li class="breadcrumb-item"><a href="{{ ENV('BASE_URL') }}admin">Home</a>
-						</li>
-						<li class="breadcrumb-item"><a href="{{ ENV('BASE_URL') }}admin/inventory/search">Inventory</a>
-						</li>
-						<li class="breadcrumb-item active">Vehicle Inventory
-						</li>
-					</ol>
-				</div>
-			</div>
+
 			
       <div class="content-body">
 
