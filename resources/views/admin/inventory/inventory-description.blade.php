@@ -395,15 +395,18 @@
 																	<div class="card-body">
 																		<form method="POST" action="{{ route('update-inventory-description') }}">
 																			{{ csrf_field() }}
+																			<?php 
+
+																			$des = $vehiclewithrelation->Description($vehicle->fldStockNo);
+																			?>
 																			<input type="hidden" value="{{ $vehicle->fldStockNo }}" id="vehiclestockno" name="vehiclestockno" />
 																		  <div class="form-group">
 																		    <label for="exampleInputEmail1">Title</label>
-																		    <input type="text" class="form-control " id="vehicletitle" aria-describedby="emailHelp" name="vehicletitle" placeholder="Enter Title" value="{{ !empty($vehiclewithrelation->Description($vehicle->fldStockNo)->fldTitle) ? $vehiclewithrelation->Description($vehicle->fldStockNo)->fldTitle : '' }}">
+																		    <input type="text" class="form-control " id="vehicletitle" aria-describedby="emailHelp" name="vehicletitle" placeholder="Enter Title" value="{{ !empty($des->fldTitle) ? $des->fldTitle : '' }}">
 																		  </div>
 																		  <div class="form-group">
 																		    <label for="exampleInputPassword1">Detailed Description:</label>
-																		    <textarea class="form-control" id="vehicledescription" name="vehicledescription" placeholder="Enter Description" rows="3">{{ !empty($vehiclewithrelation->Description($vehicle->fldStockNo)->fldDescription) ? $vehiclewithrelation->Description($vehicle->fldStockNo)->fldDescription : '' }}</textarea>
-
+																		    <textarea class="form-control" id="vehicledescription" name="vehicledescription" placeholder="Enter Description" rows="3">{{ !empty($des->fldDescription) ? $des->fldDescription : '' }}</textarea>
 																		  </div>
 																		  
 																		  <div class="row">
@@ -412,7 +415,7 @@
 																		  	</div>
 																		  	<div class="col-sm-6">
 																		  		<div class="form-check">
-																		    		<input type="checkbox" class="form-check-input" id="approve" name="approve">
+																		    		<input type="checkbox" class="form-check-input" id="approve" name="approve" {{ ($des->fldApproved == 1) ? 'checked' : '' }}>
 																		  			<label class="form-check-label" for="exampleCheck1">Approve</label>
 																		  		</div>
 																		  		<button type="submit" class="btn btn-primary" id="edit-description">Edit Description</button>

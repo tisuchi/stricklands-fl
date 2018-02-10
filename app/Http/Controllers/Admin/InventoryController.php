@@ -564,11 +564,10 @@ class InventoryController extends Controller
             $hasDescription->fldApproved = ($ischecked == 'on') ? 1 : 0;
             $hasDescription->fldTitle = $title;
             $hasDescription->save();
-            return true;
-        } else {
-            return true;
         }
 
+
+        return back();
     }
 
 
