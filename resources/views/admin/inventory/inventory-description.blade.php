@@ -415,7 +415,7 @@
 																		  	</div>
 																		  	<div class="col-sm-6">
 																		  		<div class="form-check">
-																		    		<input type="checkbox" class="form-check-input" id="approve" name="approve" {{ ($des->fldApproved == 1) ? 'checked' : '' }}>
+																		    		<input type="checkbox" class="form-check-input" id="approve" name="approve" {{ (!empty($des->fldApproved) AND $des->fldApproved == 1) ? 'checked' : '' }}>
 																		  			<label class="form-check-label" for="exampleCheck1">Approve</label>
 																		  		</div>
 																		  		<button type="submit" class="btn btn-primary" id="edit-description">Edit Description</button>
