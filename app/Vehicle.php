@@ -133,12 +133,12 @@ class Vehicle extends Model
 
 
     /**
-     * A Vehicle has one Description
+     * Give details of a description table
      * @return [type] [description]
      */
-    public function description()
+    public function scopeDescription($query, $statuscode)
     {
-        return $this->hasOne('App\Description', 'fldStockNo', 'fldStockNo');
+        return Description::where('fldStockNo', strtolower($statuscode))->first();
     }
 
 

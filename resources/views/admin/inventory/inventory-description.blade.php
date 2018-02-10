@@ -393,29 +393,35 @@
 															<div class="card">
 																<div class="card-content">
 																	<div class="card-body">
-																		<form>
+																		<form method="POST" action="{{ route('update-inventory-description') }}">
+																			{{ csrf_field() }}
+																			<input type="hidden" value="{{ $vehicle->fldStockNo }}" id="vehiclestockno" name="vehiclestockno" />
 																		  <div class="form-group">
 																		    <label for="exampleInputEmail1">Title</label>
-																		    <input type="email" class="form-control " id="exampleInputEmail1" aria-describedby="emailHelp" name="title" placeholder="Enter Title">
+																		    <input type="text" class="form-control " id="vehicletitle" aria-describedby="emailHelp" name="vehicletitle" placeholder="Enter Title" value="{{ !empty($vehiclewithrelation->Description($vehicle->fldStockNo)->fldTitle) ? $vehiclewithrelation->Description($vehicle->fldStockNo)->fldTitle : '' }}">
 																		  </div>
 																		  <div class="form-group">
 																		    <label for="exampleInputPassword1">Detailed Description:</label>
-																		    <textarea class="form-control" id="exampleFormControlTextarea1" name="description" placeholder="Enter Description" rows="3">{{ !empty($vehiclewithrelation->fldDescription) ? $vehiclewithrelation->fldDescription : '' }}</textarea>
+																		    <textarea class="form-control" id="vehicledescription" name="vehicledescription" placeholder="Enter Description" rows="3">{{ !empty($vehiclewithrelation->Description($vehicle->fldStockNo)->fldDescription) ? $vehiclewithrelation->Description($vehicle->fldStockNo)->fldDescription : '' }}</textarea>
 
 																		  </div>
 																		  
 																		  <div class="row">
 																		  	<div class="col-sm-6">
-																		  		Input By: Add User relationship here
+																		  		
 																		  	</div>
 																		  	<div class="col-sm-6">
 																		  		<div class="form-check">
-																		    		<input type="checkbox" class="form-check-input" id="exampleCheck1">
-																		  			<label class="form-check-label" for="exampleCheck1">Check me out</label>
+																		    		<input type="checkbox" class="form-check-input" id="approve" name="approve">
+																		  			<label class="form-check-label" for="exampleCheck1">Approve</label>
 																		  		</div>
-																		  		<button type="submit" class="btn btn-primary">Submit</button>
+																		  		<button type="submit" class="btn btn-primary" id="edit-description">Edit Description</button>
 																		  	</div>
 																		  </div>
+
+																		  
+
+																		  
 																		  
 																		</form>
 																	</div>
@@ -486,6 +492,10 @@
 
 
 
+
+
+
+
 <script src="{{asset('admin_assets/js/mainjs/inventory_search.js')}}" type="text/javascript"></script>
 <script src="{{asset('app-assets/vendors/js/tables/datatable/datatables.min.js')}}" type="text/javascript"></script>
 <script src="{{asset('app-assets/js/scripts/tables/datatables/datatable-basic.js')}}" type="text/javascript"></script>
@@ -507,6 +517,40 @@
 			$("#popover-"+id).popover({ trigger: "hover" });
 		}
 	);
+
+
+
+	//submit the form
+	$(document).ready(function(){
+		$('#edit-description').click(function(){
+			
+			var title = $('#vehicletitle').val();
+			var description = $('#vehicledescription').val();
+			var csrftoken = $('#csrftoken').val();
+			var vehiclestockno = $('#vehiclestockno').val();
+			var ischecked = $("#approve").prop("checked");
+
+
+			$.ajax({
+                type: 'POST',
+                url: "{{ route('update-inventory-description') }}",
+                data: { title: title, _token: csrftoken, description: description, ischecked: ischecked, vehiclestockno: vehiclestockno },
+                success: function(response) {
+                    
+                    //$(this).text() = response;
+                    /*$('#message-'+msgId).show(function(){
+                        $(this).fadeOut(4000, function(){
+                            $(this).hide();
+                        });
+                    });*/
+
+                }
+            });
+
+
+
+		});
+	});
 
 
 </script>

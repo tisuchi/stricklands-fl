@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Atype;
 use App\Vehicle;
 use App\Alocation;
+use App\Description;
 use App\Astatuscode;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -535,9 +536,39 @@ class InventoryController extends Controller
             $vehicles = $this->inventoryRepository->doSearch(request()->all());
         }
 
-        $vehiclewithrelation= (new Vehicle)->with('description')->get();
+        $vehiclewithrelation= new Vehicle;
+
+        //return $vehiclewithrelation->Description('G180525')->fldDescription;
         
         return view('admin.inventory.inventory-description', compact('locations', 'statuscodes', 'types', 'makes', 'vehicles', 'vehiclewithrelation'));
+    }
+
+
+
+
+
+    public function postDescription()
+    {
+        //getting data
+        $title = request()->input('vehicletitle');
+        $description = request()->input('vehicledescription');
+        $ischecked = request()->input('approve');
+        $vehiclestockno = request()->input('vehiclestockno');
+
+        //return request()->all();
+
+        $hasDescription = Description::where('fldStockNo', $vehiclestockno)->first();
+
+        if ($hasDescription) {
+            $hasDescription->fldDescription = $description;
+            $hasDescription->fldApproved = ($ischecked == 'on') ? 1 : 0;
+            $hasDescription->fldTitle = $title;
+            $hasDescription->save();
+            return true;
+        } else {
+            return true;
+        }
+
     }
 
 
