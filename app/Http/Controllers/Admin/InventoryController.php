@@ -583,7 +583,7 @@ class InventoryController extends Controller
 
     public function showTradeinListView()
     {
-        return "It should be here";
+        
     }
 
 
