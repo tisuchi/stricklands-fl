@@ -183,6 +183,9 @@
 													  <span aria-hidden="true">×</span>
 													</button>
 												  </div>
+												  <?php 
+														$des = $vehiclewithrelation->Description($vehicle->fldStockNo);
+													?>
 												  <div class="modal-body">
 													<div class="row">
 														<div class="col-sm-6">
@@ -395,10 +398,7 @@
 																	<div class="card-body">
 																		<form method="POST" action="{{ route('update-inventory-description') }}">
 																			{{ csrf_field() }}
-																			<?php 
-
-																			$des = $vehiclewithrelation->Description($vehicle->fldStockNo);
-																			?>
+																			
 																			<input type="hidden" value="{{ $vehicle->fldStockNo }}" id="vehiclestockno" name="vehiclestockno" />
 																		  <div class="form-group">
 																		    <label for="exampleInputEmail1">Title</label>
@@ -450,7 +450,15 @@
 											</a>
 										</td>
 										<td>{{ $vehicle->fldStockNo }} </td>
-										<td></td>
+										<td class="text-center">
+											
+											@if( !empty($des->fldDescription))
+												<img src="http://admin.519stricklands.com/img/fugue/tick-circle-faded.png" alt="">
+											@else
+												<img src="http://admin.519stricklands.com/img/fugue/cross-circle-faded.png" alt="">
+											@endif
+											
+										</td>
 										<td>{{ $vehicle->fldLocationCode }} </td>
 										<td> {{ round((strtotime(date('Y-m-d')) - strtotime($vehicle->fldDateReceived)) / (60 * 60 * 24), 0, PHP_ROUND_HALF_DOWN) }}</td>
 										
