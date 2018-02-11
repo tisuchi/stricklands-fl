@@ -22,6 +22,7 @@ Route::group(['middleware' => 'auth'], function () {
 			Route::get('count', 'Admin\InventoryController@countInventory')->name('inventory-count');
 			Route::get('description', 'Admin\InventoryController@showDescription')->name('inventory-description');
 			Route::post('description', 'Admin\InventoryController@postDescription')->name('update-inventory-description');
+			Route::get('tradein-listview', 'Admin\InventoryController@showTradeinListView')->name('inventory-tradein-listviews');
 
 		});
 	

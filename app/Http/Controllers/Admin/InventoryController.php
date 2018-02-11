@@ -521,7 +521,10 @@ class InventoryController extends Controller
 
 
 
-
+    /**
+     * Show Description 
+     * @return [type] [description]
+     */
     public function showDescription()
     {
 
@@ -546,7 +549,10 @@ class InventoryController extends Controller
 
 
 
-
+    /**
+     * Update Post Description 
+     * @return [type] [description]
+     */
     public function postDescription()
     {
         //getting data
@@ -572,6 +578,13 @@ class InventoryController extends Controller
 
 
 
+
+
+
+    public function showTradeinListView()
+    {
+        return "It should be here";
+    }
 
 
 
