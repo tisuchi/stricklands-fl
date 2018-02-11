@@ -7,6 +7,7 @@ use App\Vehicle;
 use App\Alocation;
 use App\Description;
 use App\Astatuscode;
+use App\Delivery;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\InventoryRepository;
@@ -583,7 +584,9 @@ class InventoryController extends Controller
 
     public function showTradeinListView()
     {
-        
+        $deliveries = Delivery::where('fld_trade_stock', '<>', '')->get();
+
+        return view('admin.inventory.inventory-tradein-listview', compact('deliveries'));
     }
 
 
