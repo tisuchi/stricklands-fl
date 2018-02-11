@@ -13,7 +13,7 @@
       
 			<div class="content-header row">
 				<div class="col-12">
-				<h1>All Vehicle Inventory</h1>
+				<h1>Vehicle Inventory</h1>
 				</div>
 			</div>
 
