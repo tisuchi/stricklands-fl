@@ -11,7 +11,7 @@
 		table > tr {
 			padding: 2px auto;
 		}
-		.table td{
+		.table td, .table th{
 			padding: 0 10px !important;
 			margin: 0;
 			
@@ -22,8 +22,6 @@
 
 <div class="row px-5" style="background: #CCCCCC;">
 		<div class="col-sm-12" style="padding: 10px;">
-			<br>
-			<br>
 			<div style="background: #fff;">
 				<div class="row" style="margin: 10px;">
 					<div class="col-sm-12">
