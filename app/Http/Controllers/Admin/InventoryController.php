@@ -582,11 +582,23 @@ class InventoryController extends Controller
 
 
 
+    /**
+     * Show trade in List View
+     * @return [type] [description]
+     */
     public function showTradeinListView()
     {
         $deliveries = Delivery::where('fld_trade_stock', '<>', '')->get();
 
         return view('admin.inventory.inventory-tradein-listview', compact('deliveries'));
+    }
+
+
+
+
+    public function showPrintInventoryList()
+    {
+        return "working fine";
     }
 
 

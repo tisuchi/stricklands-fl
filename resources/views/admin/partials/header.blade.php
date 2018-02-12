@@ -354,7 +354,7 @@
             </li>
             <li><a href="{{ route('inventory-search') }}?vLoc=All&vNewUsed=All&vType=All&vRetail=80000&vYear=All&vMake=All&vModel=&vOdometer=All&v14Days=Y" class="menu-item">14 Days</a>
             </li>
-            <li><a href="{{ ENV('BASE_URL') }}admin/inventory/print" class="menu-item">Print</a>
+            <li><a href="{{ route('inventory-list-print') }}" class="menu-item">Print</a>
             </li>
             <li><a href="{{ route('inventory-count') }}" class="menu-item">Inventory Count</a>
             </li>
