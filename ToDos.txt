@@ -2,6 +2,16 @@ ToDos
 ======================
 
 
+
+________ 12 February 2018 ________
+OK		==		1. Print Page
+OK		==		2. Inventory Count
+OK		==		3. Inventory Description
+OK		==		4. Inventory Trade in List View
+
+
+
+
 ________ 8 February 2018 ________
 OK		==		1. 4 Days Inventory
 OK		==		2. 14 Days Inventory
