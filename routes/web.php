@@ -24,6 +24,7 @@ Route::group(['middleware' => 'auth'], function () {
 			Route::post('description', 'Admin\InventoryController@postDescription')->name('update-inventory-description');
 			Route::get('tradein-listview', 'Admin\InventoryController@showTradeinListView')->name('inventory-tradein-listviews');
 			Route::get('print-list', 'Admin\InventoryController@showPrintInventoryList')->name('inventory-list-print');
+			Route::get('print-list-after-search', 'Admin\InventoryController@doPrintListAfterSearch')->name('inventory-list-print-after-search');
 
 		});
 	

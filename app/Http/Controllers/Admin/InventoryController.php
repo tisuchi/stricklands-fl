@@ -598,7 +598,33 @@ class InventoryController extends Controller
 
     public function showPrintInventoryList()
     {
-        return "working fine";
+        //fetching data from database for Dropdown menu in Search Page
+        $locations = Alocation::where('id','<>',100)->orderBy('fldLocationOrder')->get();
+        $statuscodes = Astatuscode::orderBy('fld_desc','desc')->get();
+        $types = Atype::get();
+        $vehicles = null;
+
+        $makes = Vehicle::MakeinfoPaginate();    
+        if(Request()->input('filter')){
+            $vehicles = $this->inventoryRepository->doSearch(request()->all());
+        }
+        
+        return view('admin.inventory.inventory-print-search', compact('locations', 'statuscodes', 'types', 'makes', 'vehicles', 'numberofdays'));
+        
+    }
+
+
+
+
+
+    public function doPrintListAfterSearch()
+    {
+        if(Request()->input('filter')){
+            $vehicles = $this->inventoryRepository->doSearch(request()->all());
+        }
+
+        return view('admin.inventory.inventory-print-preview', compact('vehicles'));
+        
     }
 
 
