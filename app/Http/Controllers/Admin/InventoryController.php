@@ -514,6 +514,8 @@ class InventoryController extends Controller
                     ];
 
 
+        return phpinfo();
+
         return view('admin.inventory.inventory-count', compact('newreadyforsale', 'newsold', 'usedreadyforsale', 'usedsold', 'sacars', 'sasuv', 'savan', 'satruck', 'tcars', 'tsuv', 'tvan', 'ttruck', 'gmcars', 'gmsuv', 'gmvan', 'gmtruck', 'wacars', 'wasuv', 'wavan', 'watruck', 'acars', 'asuv', 'avan', 'atruck'));
     }
 
