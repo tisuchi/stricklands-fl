@@ -22,7 +22,7 @@ class Request extends SymfonyRequest implements Arrayable, ArrayAccess
     /**
      * The decoded JSON content for the request.
      *
-     * @var \Symfony\Component\HttpFoundation\ParameterBag|null
+     * @var string
      */
     protected $json;
 
@@ -141,7 +141,7 @@ class Request extends SymfonyRequest implements Arrayable, ArrayAccess
     }
 
     /**
-     * Get the current decoded path info for the request.
+     * Get the current encoded path info for the request.
      *
      * @return string
      */
@@ -171,20 +171,19 @@ class Request extends SymfonyRequest implements Arrayable, ArrayAccess
     {
         $segments = explode('/', $this->decodedPath());
 
-        return array_values(array_filter($segments, function ($value) {
-            return $value !== '';
+        return array_values(array_filter($segments, function ($v) {
+            return $v != '';
         }));
     }
 
     /**
      * Determine if the current request URI matches a pattern.
      *
-     * @param  dynamic  $patterns
      * @return bool
      */
-    public function is(...$patterns)
+    public function is()
     {
-        foreach ($patterns as $pattern) {
+        foreach (func_get_args() as $pattern) {
             if (Str::is($pattern, $this->decodedPath())) {
                 return true;
             }
@@ -194,27 +193,26 @@ class Request extends SymfonyRequest implements Arrayable, ArrayAccess
     }
 
     /**
-     * Determine if the route name matches a given pattern.
+     * Check if the route name matches the given string.
      *
-     * @param  dynamic  $patterns
+     * @param  string  $name
      * @return bool
      */
-    public function routeIs(...$patterns)
+    public function routeIs($name)
     {
-        return $this->route() && $this->route()->named(...$patterns);
+        return $this->route() && $this->route()->named($name);
     }
 
     /**
      * Determine if the current request URL and query string matches a pattern.
      *
-     * @param  dynamic  $patterns
      * @return bool
      */
-    public function fullUrlIs(...$patterns)
+    public function fullUrlIs()
     {
         $url = $this->fullUrl();
 
-        foreach ($patterns as $pattern) {
+        foreach (func_get_args() as $pattern) {
             if (Str::is($pattern, $url)) {
                 return true;
             }
@@ -287,26 +285,22 @@ class Request extends SymfonyRequest implements Arrayable, ArrayAccess
      * Merge new input into the current request's input array.
      *
      * @param  array  $input
-     * @return \Illuminate\Http\Request
+     * @return void
      */
     public function merge(array $input)
     {
         $this->getInputSource()->add($input);
-
-        return $this;
     }
 
     /**
      * Replace the input for the current request.
      *
      * @param  array  $input
-     * @return \Illuminate\Http\Request
+     * @return void
      */
     public function replace(array $input)
     {
         $this->getInputSource()->replace($input);
-
-        return $this;
     }
 
     /**
@@ -314,7 +308,7 @@ class Request extends SymfonyRequest implements Arrayable, ArrayAccess
      *
      * @param  string  $key
      * @param  mixed   $default
-     * @return \Symfony\Component\HttpFoundation\ParameterBag|mixed
+     * @return mixed
      */
     public function json($key = null, $default = null)
     {
@@ -472,14 +466,14 @@ class Request extends SymfonyRequest implements Arrayable, ArrayAccess
         }
 
         return sha1(implode('|', array_merge(
-            $route->methods(), [$route->getDomain(), $route->uri(), $this->ip()]
+            $route->methods(), [$route->domain(), $route->uri(), $this->ip()]
         )));
     }
 
     /**
      * Set the JSON payload for the request.
      *
-     * @param  \Symfony\Component\HttpFoundation\ParameterBag  $json
+     * @param  array  $json
      * @return $this
      */
     public function setJson($json)
@@ -557,9 +551,7 @@ class Request extends SymfonyRequest implements Arrayable, ArrayAccess
      */
     public function offsetExists($offset)
     {
-        return array_key_exists(
-            $offset, $this->all() + $this->route()->parameters()
-        );
+        return array_key_exists($offset, $this->all());
     }
 
     /**
@@ -570,7 +562,7 @@ class Request extends SymfonyRequest implements Arrayable, ArrayAccess
      */
     public function offsetGet($offset)
     {
-        return $this->__get($offset);
+        return data_get($this->all(), $offset);
     }
 
     /**
@@ -615,8 +607,8 @@ class Request extends SymfonyRequest implements Arrayable, ArrayAccess
      */
     public function __get($key)
     {
-        if (array_key_exists($key, $this->all())) {
-            return data_get($this->all(), $key);
+        if ($this->offsetExists($key)) {
+            return $this->offsetGet($key);
         }
 
         return $this->route($key);
