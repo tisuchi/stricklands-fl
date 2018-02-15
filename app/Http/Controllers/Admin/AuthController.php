@@ -24,7 +24,7 @@ class AuthController extends Controller
         //check userlogin manually
         $hasUser = User::where('fld_usr_email', request()->input('email'))
                         ->where('fld_usr_password', request()->input('password'))       
-                        ->where('fld_usr_status', 'Y')
+                        //->where('fld_usr_status', 'Y')
                         ->first();
         
 
