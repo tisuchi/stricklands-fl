@@ -14,11 +14,11 @@
                 <div class="card-header border-0">
                   <div class="card-title text-center">
                     <div class="p-1">
-                      <a href="Admin/Welcome" class="login-logo"><img src="{{asset('app-assets/images/logo/stack-logo-dark.png')}}" alt="branding logo"></a>
+                      <a href="Admin/Welcome" class="login-logo"><img class="" width="80%" src="http://i.imgur.com/iDdBd7F.png" alt="branding logo"></a>
                     </div>
                   </div>
                   <h6 class="card-subtitle line-on-side text-muted text-center font-small-3 pt-2">
-                    <span>Login with Stack</span>
+                    <span>Login with Stricklands</span>
                   </h6>
                   @include('admin.partials.messages')
                 </div>
