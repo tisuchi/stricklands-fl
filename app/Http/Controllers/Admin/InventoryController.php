@@ -17,6 +17,8 @@ class InventoryController extends Controller
     
     protected $inventoryRepository;
 
+
+
     public function __construct(InventoryRepository $inventoryRepository)
     {
     	$this->inventoryRepository = $inventoryRepository;
@@ -64,6 +66,8 @@ class InventoryController extends Controller
                 $vehicles = $this->inventoryRepository->doSearch(request()->all());
             }
         }
+
+        return $makes;
     	
     	return view('admin.inventory.inventory-search', compact('locations', 'statuscodes', 'types', 'makes', 'vehicles', 'numberofdays'));
     }

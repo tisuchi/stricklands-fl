@@ -7,7 +7,7 @@ ________ 16 February 2018 ________
 1. image problem  for the vehicle in search page pop up. so  search page speed.
 OK 	============  2. dashboard empty page connect.
 OK 	============ 3. header login user name. : top right: login username.
- 4. logo change. : login page, and header part.
+OK 	============ 4. logo change. : login page, and header part.
 
 
 
