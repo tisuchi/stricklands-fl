@@ -67,7 +67,6 @@ class InventoryController extends Controller
             }
         }
 
-        return $makes;
     	
     	return view('admin.inventory.inventory-search', compact('locations', 'statuscodes', 'types', 'makes', 'vehicles', 'numberofdays'));
     }
