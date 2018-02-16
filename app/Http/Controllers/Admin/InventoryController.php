@@ -156,11 +156,11 @@ class InventoryController extends Controller
             $cars5 = (new Vehicle)->CountPrice('U', '=', 'C', 25000, 200000, 'E');
 
             $sacars = [
-                        'cars1' => $cars1,
-                        'cars2' => $cars2,
-                        'cars3' => $cars3,
-                        'cars4' => $cars4,
-                        'cars5' => $cars5,
+                        'cars1' => $cars1->count(),
+                        'cars2' => $cars2->count(),
+                        'cars3' => $cars3->count(),
+                        'cars4' => $cars4->count(),
+                        'cars5' => $cars5->count(),
                     ]; 
 
 
@@ -171,11 +171,11 @@ class InventoryController extends Controller
             $suv5 = (new Vehicle)->CountPrice('U', '=', 'S', 25000, 200000, 'E');
 
             $sasuv = [
-                        'suv1' => $suv1,
-                        'suv2' => $suv2,
-                        'suv3' => $suv3,
-                        'suv4' => $suv4,
-                        'suv5' => $suv5,
+                        'suv1' => $suv1->count(),
+                        'suv2' => $suv2->count(),
+                        'suv3' => $suv3->count(),
+                        'suv4' => $suv4->count(),
+                        'suv5' => $suv5->count(),
                     ];
 
             $suv1 = (new Vehicle)->CountPrice('U', '=', 'S', 0, 10000, 'E');
@@ -185,11 +185,11 @@ class InventoryController extends Controller
             $suv5 = (new Vehicle)->CountPrice('U', '=', 'S', 25000, 200000, 'E');
 
             $sasuv = [
-                        'suv1' => $suv1,
-                        'suv2' => $suv2,
-                        'suv3' => $suv3,
-                        'suv4' => $suv4,
-                        'suv5' => $suv5,
+                        'suv1' => $suv1->count(),
+                        'suv2' => $suv2->count(),
+                        'suv3' => $suv3->count(),
+                        'suv4' => $suv4->count(),
+                        'suv5' => $suv5->count(),
                     ];
 
             $van1 = (new Vehicle)->CountPrice('U', '=', 'V', 0, 10000, 'E');
@@ -199,11 +199,11 @@ class InventoryController extends Controller
             $van5 = (new Vehicle)->CountPrice('U', '=', 'V', 25000, 200000, 'E');
 
             $savan = [
-                        'van1' => $van1,
-                        'van2' => $van2,
-                        'van3' => $van3,
-                        'van4' => $van4,
-                        'van5' => $van5,
+                        'van1' => $van1->count(),
+                        'van2' => $van2->count(),
+                        'van3' => $van3->count(),
+                        'van4' => $van4->count(),
+                        'van5' => $van5->count(),
                     ];
 
             $truck1 = (new Vehicle)->CountPrice('U', '=', 'T', 0, 10000, 'E');
@@ -213,11 +213,11 @@ class InventoryController extends Controller
             $truck5 = (new Vehicle)->CountPrice('U', '=', 'T', 25000, 200000, 'E');
 
             $satruck = [
-                        'truck1' => $truck1,
-                        'truck2' => $truck2,
-                        'truck3' => $truck3,
-                        'truck4' => $truck4,
-                        'truck5' => $truck5,
+                        'truck1' => $truck1->count(),
+                        'truck2' => $truck2->count(),
+                        'truck3' => $truck3->count(),
+                        'truck4' => $truck4->count(),
+                        'truck5' => $truck5->count(),
                     ];
 
 
@@ -229,11 +229,11 @@ class InventoryController extends Controller
             $cars5 = (new Vehicle)->CountPrice('U', '=', 'C', 25000, 200000, 'T');
 
             $tcars = [
-                        'cars1' => $cars1,
-                        'cars2' => $cars2,
-                        'cars3' => $cars3,
-                        'cars4' => $cars4,
-                        'cars5' => $cars5,
+                        'cars1' => $cars1->count(),
+                        'cars2' => $cars2->count(),
+                        'cars3' => $cars3->count(),
+                        'cars4' => $cars4->count(),
+                        'cars5' => $cars5->count(),
                     ]; 
 
 
@@ -244,11 +244,11 @@ class InventoryController extends Controller
             $suv5 = (new Vehicle)->CountPrice('U', '=', 'S', 25000, 200000, 'T');
 
             $tsuv = [
-                        'suv1' => $suv1,
-                        'suv2' => $suv2,
-                        'suv3' => $suv3,
-                        'suv4' => $suv4,
-                        'suv5' => $suv5,
+                        'suv1' => $suv1->count(),
+                        'suv2' => $suv2->count(),
+                        'suv3' => $suv3->count(),
+                        'suv4' => $suv4->count(),
+                        'suv5' => $suv5->count(),
                     ];
 
             $suv1 = (new Vehicle)->CountPrice('U', '=', 'S', 0, 10000, 'T');
@@ -258,11 +258,11 @@ class InventoryController extends Controller
             $suv5 = (new Vehicle)->CountPrice('U', '=', 'S', 25000, 200000, 'T');
 
             $tsuv = [
-                        'suv1' => $suv1,
-                        'suv2' => $suv2,
-                        'suv3' => $suv3,
-                        'suv4' => $suv4,
-                        'suv5' => $suv5,
+                        'suv1' => $suv1->count(),
+                        'suv2' => $suv2->count(),
+                        'suv3' => $suv3->count(),
+                        'suv4' => $suv4->count(),
+                        'suv5' => $suv5->count(),
                     ];
 
             $van1 = (new Vehicle)->CountPrice('U', '=', 'V', 0, 10000, 'T');
@@ -272,11 +272,11 @@ class InventoryController extends Controller
             $van5 = (new Vehicle)->CountPrice('U', '=', 'V', 25000, 200000, 'T');
 
             $tvan = [
-                        'van1' => $van1,
-                        'van2' => $van2,
-                        'van3' => $van3,
-                        'van4' => $van4,
-                        'van5' => $van5,
+                        'van1' => $van1->count(),
+                        'van2' => $van2->count(),
+                        'van3' => $van3->count(),
+                        'van4' => $van4->count(),
+                        'van5' => $van5->count(),
                     ];
 
             $truck1 = (new Vehicle)->CountPrice('U', '=', 'T', 0, 10000, 'T');
@@ -286,11 +286,11 @@ class InventoryController extends Controller
             $truck5 = (new Vehicle)->CountPrice('U', '=', 'T', 25000, 200000, 'T');
 
             $ttruck = [
-                        'truck1' => $truck1,
-                        'truck2' => $truck2,
-                        'truck3' => $truck3,
-                        'truck4' => $truck4,
-                        'truck5' => $truck5,
+                        'truck1' => $truck1->count(),
+                        'truck2' => $truck2->count(),
+                        'truck3' => $truck3->count(),
+                        'truck4' => $truck4->count(),
+                        'truck5' => $truck5->count(),
                     ];
 
 
@@ -302,11 +302,11 @@ class InventoryController extends Controller
             $cars5 = (new Vehicle)->CountPrice('U', '=', 'C', 25000, 200000, 'BG');
 
             $gmcars = [
-                        'cars1' => $cars1,
-                        'cars2' => $cars2,
-                        'cars3' => $cars3,
-                        'cars4' => $cars4,
-                        'cars5' => $cars5,
+                        'cars1' => $cars1->count(),
+                        'cars2' => $cars2->count(),
+                        'cars3' => $cars3->count(),
+                        'cars4' => $cars4->count(),
+                        'cars5' => $cars5->count(),
                     ]; 
 
 
@@ -317,11 +317,11 @@ class InventoryController extends Controller
             $suv5 = (new Vehicle)->CountPrice('U', '=', 'S', 25000, 200000, 'BG');
 
             $gmsuv = [
-                        'suv1' => $suv1,
-                        'suv2' => $suv2,
-                        'suv3' => $suv3,
-                        'suv4' => $suv4,
-                        'suv5' => $suv5,
+                        'suv1' => $suv1->count(),
+                        'suv2' => $suv2->count(),
+                        'suv3' => $suv3->count(),
+                        'suv4' => $suv4->count(),
+                        'suv5' => $suv5->count(),
                     ];
 
             $suv1 = (new Vehicle)->CountPrice('U', '=', 'S', 0, 10000, 'BG');
@@ -331,11 +331,11 @@ class InventoryController extends Controller
             $suv5 = (new Vehicle)->CountPrice('U', '=', 'S', 25000, 200000, 'BG');
 
             $gmsuv = [
-                        'suv1' => $suv1,
-                        'suv2' => $suv2,
-                        'suv3' => $suv3,
-                        'suv4' => $suv4,
-                        'suv5' => $suv5,
+                        'suv1' => $suv1->count(),
+                        'suv2' => $suv2->count(),
+                        'suv3' => $suv3->count(),
+                        'suv4' => $suv4->count(),
+                        'suv5' => $suv5->count(),
                     ];
 
             $van1 = (new Vehicle)->CountPrice('U', '=', 'V', 0, 10000, 'BG');
@@ -345,11 +345,11 @@ class InventoryController extends Controller
             $van5 = (new Vehicle)->CountPrice('U', '=', 'V', 25000, 200000, 'BG');
 
             $gmvan = [
-                        'van1' => $van1,
-                        'van2' => $van2,
-                        'van3' => $van3,
-                        'van4' => $van4,
-                        'van5' => $van5,
+                        'van1' => $van1->count(),
+                        'van2' => $van2->count(),
+                        'van3' => $van3->count(),
+                        'van4' => $van4->count(),
+                        'van5' => $van5->count(),
                     ];
 
             $truck1 = (new Vehicle)->CountPrice('U', '=', 'T', 0, 10000, 'BG');
@@ -359,11 +359,11 @@ class InventoryController extends Controller
             $truck5 = (new Vehicle)->CountPrice('U', '=', 'T', 25000, 200000, 'BG');
 
             $gmtruck = [
-                        'truck1' => $truck1,
-                        'truck2' => $truck2,
-                        'truck3' => $truck3,
-                        'truck4' => $truck4,
-                        'truck5' => $truck5,
+                        'truck1' => $truck1->count(),
+                        'truck2' => $truck2->count(),
+                        'truck3' => $truck3->count(),
+                        'truck4' => $truck4->count(),
+                        'truck5' => $truck5->count(),
                     ];
 
 
@@ -375,11 +375,11 @@ class InventoryController extends Controller
             $cars5 = (new Vehicle)->CountPrice('U', '=', 'C', 25000, 200000, 'W');
 
             $wacars = [
-                        'cars1' => $cars1,
-                        'cars2' => $cars2,
-                        'cars3' => $cars3,
-                        'cars4' => $cars4,
-                        'cars5' => $cars5,
+                        'cars1' => $cars1->count(),
+                        'cars2' => $cars2->count(),
+                        'cars3' => $cars3->count(),
+                        'cars4' => $cars4->count(),
+                        'cars5' => $cars5->count(),
                     ]; 
 
 
@@ -390,11 +390,11 @@ class InventoryController extends Controller
             $suv5 = (new Vehicle)->CountPrice('U', '=', 'S', 25000, 200000, 'W');
 
             $wasuv = [
-                        'suv1' => $suv1,
-                        'suv2' => $suv2,
-                        'suv3' => $suv3,
-                        'suv4' => $suv4,
-                        'suv5' => $suv5,
+                        'suv1' => $suv1->count(),
+                        'suv2' => $suv2->count(),
+                        'suv3' => $suv3->count(),
+                        'suv4' => $suv4->count(),
+                        'suv5' => $suv5->count(),
                     ];
 
             $suv1 = (new Vehicle)->CountPrice('U', '=', 'S', 0, 10000, 'W');
@@ -404,11 +404,11 @@ class InventoryController extends Controller
             $suv5 = (new Vehicle)->CountPrice('U', '=', 'S', 25000, 200000, 'W');
 
             $wasuv = [
-                        'suv1' => $suv1,
-                        'suv2' => $suv2,
-                        'suv3' => $suv3,
-                        'suv4' => $suv4,
-                        'suv5' => $suv5,
+                        'suv1' => $suv1->count(),
+                        'suv2' => $suv2->count(),
+                        'suv3' => $suv3->count(),
+                        'suv4' => $suv4->count(),
+                        'suv5' => $suv5->count(),
                     ];
 
             $van1 = (new Vehicle)->CountPrice('U', '=', 'V', 0, 10000, 'W');
@@ -418,11 +418,11 @@ class InventoryController extends Controller
             $van5 = (new Vehicle)->CountPrice('U', '=', 'V', 25000, 200000, 'W');
 
             $wavan = [
-                        'van1' => $van1,
-                        'van2' => $van2,
-                        'van3' => $van3,
-                        'van4' => $van4,
-                        'van5' => $van5,
+                        'van1' => $van1->count(),
+                        'van2' => $van2->count(),
+                        'van3' => $van3->count(),
+                        'van4' => $van4->count(),
+                        'van5' => $van5->count(),
                     ];
 
             $truck1 = (new Vehicle)->CountPrice('U', '=', 'T', 0, 10000, 'W');
@@ -432,11 +432,11 @@ class InventoryController extends Controller
             $truck5 = (new Vehicle)->CountPrice('U', '=', 'T', 25000, 200000, 'W');
 
             $watruck = [
-                        'truck1' => $truck1,
-                        'truck2' => $truck2,
-                        'truck3' => $truck3,
-                        'truck4' => $truck4,
-                        'truck5' => $truck5,
+                        'truck1' => $truck1->count(),
+                        'truck2' => $truck2->count(),
+                        'truck3' => $truck3->count(),
+                        'truck4' => $truck4->count(),
+                        'truck5' => $truck5->count(),
                     ];
 
 
@@ -449,11 +449,11 @@ class InventoryController extends Controller
             $cars5 = (new Vehicle)->CountPrice('U', '=', 'C', 25000, 200000);
 
             $acars = [
-                        'cars1' => $cars1,
-                        'cars2' => $cars2,
-                        'cars3' => $cars3,
-                        'cars4' => $cars4,
-                        'cars5' => $cars5,
+                        'cars1' => $cars1->count(),
+                        'cars2' => $cars2->count(),
+                        'cars3' => $cars3->count(),
+                        'cars4' => $cars4->count(),
+                        'cars5' => $cars5->count(),
                     ]; 
 
 
@@ -464,11 +464,11 @@ class InventoryController extends Controller
             $suv5 = (new Vehicle)->CountPrice('U', '=', 'S', 25000, 200000);
 
             $asuv = [
-                        'suv1' => $suv1,
-                        'suv2' => $suv2,
-                        'suv3' => $suv3,
-                        'suv4' => $suv4,
-                        'suv5' => $suv5,
+                        'suv1' => $suv1->count(),
+                        'suv2' => $suv2->count(),
+                        'suv3' => $suv3->count(),
+                        'suv4' => $suv4->count(),
+                        'suv5' => $suv5->count(),
                     ];
 
             $suv1 = (new Vehicle)->CountPrice('U', '=', 'S', 0, 10000);
@@ -478,11 +478,11 @@ class InventoryController extends Controller
             $suv5 = (new Vehicle)->CountPrice('U', '=', 'S', 25000, 200000);
 
             $asuv = [
-                        'suv1' => $suv1,
-                        'suv2' => $suv2,
-                        'suv3' => $suv3,
-                        'suv4' => $suv4,
-                        'suv5' => $suv5,
+                        'suv1' => $suv1->count(),
+                        'suv2' => $suv2->count(),
+                        'suv3' => $suv3->count(),
+                        'suv4' => $suv4->count(),
+                        'suv5' => $suv5->count(),
                     ];
 
             $van1 = (new Vehicle)->CountPrice('U', '=', 'V', 0, 10000);
@@ -492,11 +492,11 @@ class InventoryController extends Controller
             $van5 = (new Vehicle)->CountPrice('U', '=', 'V', 25000, 200000);
 
             $avan = [
-                        'van1' => $van1,
-                        'van2' => $van2,
-                        'van3' => $van3,
-                        'van4' => $van4,
-                        'van5' => $van5,
+                        'van1' => $van1->count(),
+                        'van2' => $van2->count(),
+                        'van3' => $van3->count(),
+                        'van4' => $van4->count(),
+                        'van5' => $van5->count(),
                     ];
 
             $truck1 = (new Vehicle)->CountPrice('U', '=', 'T', 0, 10000);
@@ -506,13 +506,17 @@ class InventoryController extends Controller
             $truck5 = (new Vehicle)->CountPrice('U', '=', 'T', 25000, 200000);
 
             $atruck = [
-                        'truck1' => $truck1,
-                        'truck2' => $truck2,
-                        'truck3' => $truck3,
-                        'truck4' => $truck4,
-                        'truck5' => $truck5,
+                        'truck1' => $truck1->count(),
+                        'truck2' => $truck2->count(),
+                        'truck3' => $truck3->count(),
+                        'truck4' => $truck4->count(),
+                        'truck5' => $truck5->count(),
                     ];
 
+
+        //dd($savan['van1']->count());
+        //dd(is_integer($savan['van1']) ? $savan['van1'] : 0);
+        //dd($savan);
 
         return view('admin.inventory.inventory-count', compact('newreadyforsale', 'newsold', 'usedreadyforsale', 'usedsold', 'sacars', 'sasuv', 'savan', 'satruck', 'tcars', 'tsuv', 'tvan', 'ttruck', 'gmcars', 'gmsuv', 'gmvan', 'gmtruck', 'wacars', 'wasuv', 'wavan', 'watruck', 'acars', 'asuv', 'avan', 'atruck'));
     }

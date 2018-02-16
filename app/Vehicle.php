@@ -118,12 +118,12 @@ class Vehicle extends Model
                     ->where('fldType', $type)
                     ->where('fldLocation', $location)
                     ->whereBetween('fldRetail', [$minretail, $maxretail])
-                    ->count();
+                    ->get();
         } else {
             return $query->where('fldStatusCode', $statusoperator, $statuscode)
                     ->where('fldType', $type)
                     ->whereBetween('fldRetail', [$minretail, $maxretail])
-                    ->count();
+                    ->get();
 
         }
         

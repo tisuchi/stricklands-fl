@@ -201,24 +201,34 @@
 			                        </tr>
 			                        <tr>
 			                          <th>Minivans</th>
-			                          <td>{{ $savan['van1'] }}</td>
+			                          <td>{{ 0 /*$savan['van1']*/ }}</td>
+
 			                          <td>{{ $savan['van2'] }}</td>
+
 			                          <td>{{ $savan['van3'] }}</td>
+
 			                          <td>{{ $savan['van4'] }}</td>
 			                          <td>{{ $savan['van5'] }}</td>
+
 			                        </tr>
 			                        <tr>
 			                          <th>Trucks</th>
-			                          <td>{{ $satruck['truck1'] }}</td>
+			                          <td>{{ is_numeric($satruck['truck1']) ? $satruck['truck1'] : 0 }}</td>
+			                          
 			                          <td>{{ $satruck['truck2'] }}</td>
+
 			                          <td>{{ $satruck['truck3'] }}</td>
 			                          <td>{{ $satruck['truck4'] }}</td>
 			                          <td>{{ $satruck['truck5'] }}</td>
+
 			                        </tr>
 			                        <tr>
 			                          <th>Total</th>
 			                          <td>
 			                          	{{ $sacars['cars1'] + $sasuv['suv1'] + $savan['van1'] + $satruck['truck1'] }}
+
+			                          	
+
 			                          </td>
 			                          <td>
 			                          	{{ $sacars['cars2'] + $sasuv['suv2'] + $savan['van2'] + $satruck['truck2'] }}
