@@ -3,6 +3,16 @@ ToDos
 
 
 
+________ 16 February 2018 ________
+1. image problem  for the vehicle in search page pop up. so  search page speed.
+2. dashboard empty page connect.
+3. header login user name. : top right: login username.
+OK 	============ 4. logo change. : login page, and header part.
+
+
+
+
+
 ________ 12 February 2018 ________
 OK		==		1. Print Page
 OK		==		2. Inventory Count

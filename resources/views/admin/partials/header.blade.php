@@ -316,7 +316,9 @@
               <a href="#" data-toggle="dropdown" class="dropdown-toggle nav-link dropdown-user-link">
                 <span class="avatar avatar-online">
                   <img src="{{asset('app-assets/images/portrait/small/avatar-s-1.png')}}" alt="avatar"><i></i></span>
-                <span class="user-name">John Doe</span>
+                <span class="user-name">
+                  {{ Auth::user()->fld_usr_fname }}
+                </span>
               </a>
               <div class="dropdown-menu dropdown-menu-right">
                 <!-- <a href="#" class="dropdown-item"><i class="ft-user"></i> Edit Profile</a>
