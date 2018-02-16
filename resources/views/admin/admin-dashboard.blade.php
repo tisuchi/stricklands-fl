@@ -13,9 +13,10 @@
       
 			<div class="content-header row">
 				<div class="col-12">
-				<h1>Inventory Count</h1>
+				<h1>Admin Dashboard</h1>
 				</div>
 			</div>
+			<hr>
 			
       <div class="content-body">
 
@@ -25,8 +26,9 @@
           <div class="row">
             <div class="col-12">
               	
-              	<h2>Welcome to </h2>
-              	
+              	<h2 class="text-center pt-5 mt-5">
+					Hi, {{ Auth::user()->fld_usr_fname }} 
+              	</h2>
 
             </div>
           </div>

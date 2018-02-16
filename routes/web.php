@@ -16,6 +16,8 @@ Route::group(['middleware' => 'auth'], function () {
 	
 	Route::group(['prefix' => 'admin'], function (){
 
+		Route::get('/', 'Admin\AdminController@index')->name('index-dashboard');
+
 		//its for inventory
 		Route::group(['prefix' => 'inventory'], function (){
 			

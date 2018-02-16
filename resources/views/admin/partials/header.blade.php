@@ -345,7 +345,7 @@
           class=" ft-minus"></i>
         </li>
         <li class=" nav-item">
-          <a href="{{ ENV('BASE_URL') }}admin"><i class="ft-home"></i><span data-i18n="" class="menu-title">Dashboard</span></a>
+          <a href="{{ route('index-dashboard') }}"><i class="ft-home"></i><span data-i18n="" class="menu-title">Dashboard</span></a>
         </li>  
         <li class=" nav-item">
           <a href="#"><i class="fa fa-list" aria-hidden="true"></i><span data-i18n="" class="menu-title">Inventory</span></a>
