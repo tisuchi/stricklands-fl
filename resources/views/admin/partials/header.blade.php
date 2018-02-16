@@ -6,9 +6,9 @@
           <li class="nav-item mobile-menu d-md-none mr-auto"><a href="#" class="nav-link nav-menu-main menu-toggle hidden-xs"><i class="ft-menu font-large-1"></i></a></li>
           <li class="nav-item">
             <a href="index.html" class="navbar-brand">
-              <img alt="stack admin logo" src="{{asset('app-assets/images/logo/stack-logo-light.png')}}"
+              <img alt="stack admin logo" src="https://www.stricklands.com/img/logos/stricklands-logo.png" width="150" 
               class="brand-logo">
-              <h2 class="brand-text">Stack</h2>
+              {{-- <h2 class="brand-text">Stack</h2> --}}
             </a>
           </li>
           <li class="nav-item d-md-none">
