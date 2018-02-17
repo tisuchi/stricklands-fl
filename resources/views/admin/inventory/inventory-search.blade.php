@@ -223,7 +223,7 @@
 																				//if (@GetImageSize($name)) {
 																				//http://images.stricklands.com/vin/171835A-1.jpg
 																				if (@getimagesize($name)) {
-																	            	for ($i=2;$i<=30;$i++)
+																	            	for ($i=2;$i<=7;$i++)
 																					{
 																						$namepath = "/home/adminstrick/images.stricklands.com/vin/" . $vehicle->fldStockNo . "-" . $i . ".jpg";
 																						if (@getimagesize($namepath)) {
