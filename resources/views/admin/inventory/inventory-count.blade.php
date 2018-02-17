@@ -213,10 +213,8 @@
 			                        </tr>
 			                        <tr>
 			                          <th>Trucks</th>
-			                          <td>{{ is_numeric($satruck['truck1']) ? $satruck['truck1'] : 0 }}</td>
-			                          
+			                          <td>{{ $satruck['truck1'] }}</td>
 			                          <td>{{ $satruck['truck2'] }}</td>
-
 			                          <td>{{ $satruck['truck3'] }}</td>
 			                          <td>{{ $satruck['truck4'] }}</td>
 			                          <td>{{ $satruck['truck5'] }}</td>

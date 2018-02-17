@@ -210,21 +210,28 @@
 
 																				<?php 
 																					
-																					for ($i=2;$i<=3;$i++)
-																			        {
-																			        	/*$name = "/home/adminstrick/images.stricklands.com/vin/";
-																						$name .= $row_rs_list['fldStockNo'];						
-																						$name .= "-" . $i . ".jpg";*/
-																			        	//if (@GetImageSize($name)) {}
-																			            $name = "http://images.stricklands.com/vin/$vehicle->fldStockNo-".$i . ".jpg";
-																			            if ($i == 2) {
-																			            	echo '<div class="carousel-item active">';
-																			            } else {
-																			            	echo '<div class="carousel-item">';
-																			            }
-																			            	echo '<img src="'.$name.'" alt="" width="500" height="375"/>';
-																			            	echo '</div>';
-																			        }
+																		        	/*$name = "/home/adminstrick/images.stricklands.com/vin/";
+																					$name .= $row_rs_list['fldStockNo'];						
+																					$name .= "-" . $i . ".jpg";*/
+																		        	//if (@GetImageSize($name)) {}
+																		           
+																	            	for ($i=2;$i<=60;$i++)
+																					{
+																						$name = "/home/adminstrick/images.stricklands.com/vin/";
+																						$name .= $vehicle->fldStockNo;						
+																						$name .= "-" . $i . ".jpg";
+																					    if (@GetImageSize($name)) {
+																					    	if ($i == 2) {
+																				            	echo '<div class="carousel-item active">';
+																				            } else {
+																				            	echo '<div class="carousel-item">';
+																				            }
+																					        echo '<a href="#" ><img src="$name" alt="" width="500" height="375"/></a>';
+																					        echo '</div>';
+																					    }					
+																					}
+																			            	
+																			       
 																			        
 																				?>
 
