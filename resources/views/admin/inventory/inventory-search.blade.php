@@ -215,24 +215,31 @@
 																					$name .= "-" . $i . ".jpg";*/
 																		        	//if (@GetImageSize($name)) {}
 																		           
-																	            	for ($i=2;$i<=60;$i++)
+																		        $name = "http://images.stricklands.com/vin/".$vehicle->fldStockNo. "-1.jpg";
+
+																		        $name = "/home/adminstrick/images.stricklands.com/vin/".$vehicle->fldStockNo . "-1.jpg";
+
+
+																				//if (@GetImageSize($name)) {
+																				//http://images.stricklands.com/vin/171835A-1.jpg
+																				if (@getimagesize($name)) {
+																	            	for ($i=2;$i<=30;$i++)
 																					{
-																						$name = "/home/adminstrick/images.stricklands.com/vin/";
-																						$name .= $vehicle->fldStockNo;						
-																						$name .= "-" . $i . ".jpg";
-																					    if (@GetImageSize($name)) {
+																						$namepath = "/home/adminstrick/images.stricklands.com/vin/" . $vehicle->fldStockNo . "-" . $i . ".jpg";
+																						if (@getimagesize($namepath)) {
+
 																					    	if ($i == 2) {
 																				            	echo '<div class="carousel-item active">';
 																				            } else {
 																				            	echo '<div class="carousel-item">';
 																				            }
-																					        echo '<a href="#" ><img src="$name" alt="" width="500" height="375"/></a>';
+																					        echo '<a href="#" ><img src="http://images.stricklands.com/vin/'.$vehicle->fldStockNo.'-'.$i.'.jpg" alt="" width="500" height="375"/></a>';
 																					        echo '</div>';
-																					    }					
+																					    }
 																					}
-																			            	
-																			       
-																			        
+
+																				}
+																			            	   
 																				?>
 
 																				<div class="carousel-item">
@@ -415,7 +422,18 @@
 										<td>
 											<a href="" data-toggle="modal" data-target="#default-{{ $vehicle->fldStockNo }}" style="color: #000;">
 												<center>
-													<img src="{{ env('BASE_URL') }}/images/icon.png" alt="">
+													<?php 
+
+														//$name = "http://images.stricklands.com/vin/".$vehicle->fldStockNo. "-1.jpg";
+												        $hasPhoto = "/home/adminstrick/images.stricklands.com/vin/".$vehicle->fldStockNo . "-1.jpg";
+														if (@getimagesize($hasPhoto)) {
+													?>
+
+															<img src="{{ env('BASE_URL') }}/images/icon.png" alt="">
+													<?php
+														}
+													?>
+													
 												</center>
 											</a>
 										</td>
