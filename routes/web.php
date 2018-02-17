@@ -1,10 +1,11 @@
 <?php
 
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
 });
-
+*/
+Route::get('/', 'Admin\AuthController@showLogin')->name('login');
 Route::get('login', 'Admin\AuthController@showLogin')->name('login');
 Route::post('login', 'Admin\AuthController@doLogin')->name('login');
 Route::get('logout', 'Admin\AuthController@doLogout')->name('logout');
