@@ -77,7 +77,8 @@ class InventoryRepository {
 		}
 
 
-		return $vehicles->paginate(100);	//retrun ultimate query
+		return $vehicles->get();	//retrun ultimate query
+		//return $vehicles->paginate(100);	//retrun ultimate query
 
     }
 
