@@ -281,11 +281,12 @@
 														$name .= $row_rs_list['fldStockNo'];						
 														$name .= "-" . $i . ".jpg";*/
 											        	//if (@GetImageSize($name)) {}
-											        	$vinNo = "@{{ vehicle.fldStockNo }}";
+											        	$vinNo = "{{ vehicle.fldStockNo }}";
 											        
 											        $name = "http://images.stricklands.com/vin/". $vinNo . "-1.jpg";
 
 											        $name = "/home/adminstrick/images.stricklands.com/vin/". $vinNo ."-1.jpg";
+											        echo $name;
 
 
 													//if (@GetImageSize($name)) {
