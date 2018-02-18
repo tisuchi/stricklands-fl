@@ -30,7 +30,7 @@ class AdminController extends Controller
 
     public function getTestData($id)
     {
-    	$user = User::find($id);
+    	$user = Vehicle::where('fldStockNo', $id)->first();
     	return $user;
     }
 
