@@ -286,7 +286,6 @@
 											        $name = "http://images.stricklands.com/vin/". $vinNo . "-1.jpg";
 
 											        $name = "/home/adminstrick/images.stricklands.com/vin/". $vinNo ."-1.jpg";
-											        echo $name;
 
 
 													//if (@GetImageSize($name)) {
