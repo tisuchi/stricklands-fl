@@ -15,6 +15,9 @@
 				<div class="col-12">
 				<h1>Vehicle Inventory {{ !empty($numberofdays)? "- Last $numberofdays Days" : ''}} </h1>
 				</div>
+
+
+
 			</div>
 
 			
