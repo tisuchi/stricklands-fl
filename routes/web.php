@@ -12,7 +12,12 @@ Route::get('logout', 'Admin\AuthController@doLogout')->name('logout');
 
 
 Route::get('test', 'Admin\AdminController@test')->name('test');
-Route::get('gettestdata/{id}', 'Admin\AdminController@getTestData')->name('get-test-data');
+
+
+
+
+//get image data from search page
+Route::get('getimagedata/{id}', 'Admin\AdminController@getImageData')->name('get-image-data');
 
 
 

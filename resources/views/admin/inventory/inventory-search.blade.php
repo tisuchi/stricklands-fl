@@ -527,7 +527,7 @@
             showModal: function(id) {
                 /*this.passingData = true;*/
                 this.passingData = id;
-                $.getJSON('http://localhost/php/freelancer/stricklands/public/gettestdata/'+this.passingData, function(messages){
+                $.getJSON('http://localhost/php/freelancer/stricklands/public/getimagedata/'+this.passingData, function(messages){
                     this.vehicle = messages;
                 }.bind(this));
             }

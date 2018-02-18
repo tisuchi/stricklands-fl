@@ -14,7 +14,6 @@ class AdminController extends Controller
     public function index()
     {
     	$vehicle = Vehicle::get()->count();
-    	return $vehicle->toJson();
 
     	return view('admin.admin-dashboard');
     }
@@ -28,7 +27,7 @@ class AdminController extends Controller
 
 
 
-    public function getTestData($id)
+    public function getImageData($id)
     {
     	$user = Vehicle::where('fldStockNo', $id)->first();
     	return $user;
