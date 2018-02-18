@@ -185,12 +185,12 @@
 
 														//$name = "http://images.stricklands.com/vin/".$vehicle->fldStockNo. "-1.jpg";
 												        $hasPhoto = "/home/adminstrick/images.stricklands.com/vin/".$vehicle->fldStockNo . "-1.jpg";
-														//if (@getimagesize($hasPhoto)) {
+														if (@getimagesize($hasPhoto)) {
 													?>
 
 															<img src="{{ env('BASE_URL') }}/images/icon.png" alt="">
 													<?php
-														//}
+														}
 													?>
 													
 												</center>
@@ -268,6 +268,7 @@
 													<li data-target="#carousel-example-generic" data-slide-to="1" class="active"></li>
 													<li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
 												</ol> --}}
+												<input type="hidden" id="getvinnumber" name="vinnumber" value="@{{ vehicle.fldStockNo }}">
 												<div class="carousel-inner" role="listbox">
 													
 													
@@ -275,41 +276,69 @@
 														<img src="http://images.stricklands.com/vin/G180337-2.jpg" alt="First slide" width='500' height='375'>
 													</div>  --}}
 
-													<?php 
+
+														<div class="carousel-item active">
+															<a href="#" ><img src="'http://images.stricklands.com/vin/'+vehicle.fldStockNo+'-1.jpg'" alt="" width="500" height="375"/></a>
+														</div>
+												    	<div class="carousel-item">
+													    	<a href="#" ><img v-bind:src="'http://images.stricklands.com/vin/'+ vehicle.fldStockNo + '-2.jpg'" alt="" width="500" height="375"/></a>
+													    </div>
+												    	<div class="carousel-item">
+													    	<a href="#" ><img v-bind:src="'http://images.stricklands.com/vin/'+ vehicle.fldStockNo + '-3.jpg'" alt="" width="500" height="375"/></a>
+													    </div>
+												    	<div class="carousel-item">
+													    	<a href="#" ><img v-bind:src="'http://images.stricklands.com/vin/'+ vehicle.fldStockNo + '-4.jpg'" alt="" width="500" height="375"/></a>
+													    </div>
+												    	<div class="carousel-item">
+													    	<a href="#" ><img v-bind:src="'http://images.stricklands.com/vin/'+ vehicle.fldStockNo + '-4.jpg'" alt="" width="500" height="375"/></a>
+													    </div>
+												    	<div class="carousel-item">
+													    	<a href="#" ><img v-bind:src="'http://images.stricklands.com/vin/'+ vehicle.fldStockNo + '-6.jpg'" alt="" width="500" height="375"/></a>
+													    </div>
+												    	<div class="carousel-item">
+													    	<a href="#" ><img v-bind:src="'http://images.stricklands.com/vin/'+ vehicle.fldStockNo + '-7.jpg'" alt="" width="500" height="375"/></a>
+													    </div>
+												    	<div class="carousel-item">
+													    	<a href="#" ><img v-bind:src="'http://images.stricklands.com/vin/'+ vehicle.fldStockNo + '-8.jpg'" alt="" width="500" height="375"/></a>
+													    </div>
+												    	<div class="carousel-item">
+													    	<a href="#" ><img v-bind:src="'http://images.stricklands.com/vin/'+ vehicle.fldStockNo + '-9.jpg'" alt="" width="500" height="375"/></a>
+													    </div>
+												    	<div class="carousel-item">
+													    	<a href="#" ><img v-bind:src="'http://images.stricklands.com/vin/'+ vehicle.fldStockNo + '-10.jpg'" alt="" width="500" height="375"/></a>
+													    </div>
+												    	<div class="carousel-item">
+													    	<a href="#" ><img v-bind:src="'http://images.stricklands.com/vin/'+ vehicle.fldStockNo + '-11.jpg'" alt="" width="500" height="375"/></a>
+													    </div>
+												    	<div class="carousel-item">
+													    	<a href="#" ><img v-bind:src="'http://images.stricklands.com/vin/'+ vehicle.fldStockNo + '-12.jpg'" alt="" width="500" height="375"/></a>
+													    </div>
+												    	<div class="carousel-item">
+													    	<a href="#" ><img v-bind:src="'http://images.stricklands.com/vin/'+ vehicle.fldStockNo + '-13.jpg'" alt="" width="500" height="375"/></a>
+													    </div>
+												    	<div class="carousel-item">
+													    	<a href="#" ><img v-bind:src="'http://images.stricklands.com/vin/'+ vehicle.fldStockNo + '-14.jpg'" alt="" width="500" height="375"/></a>
+													    </div>
+												    	<div class="carousel-item">
+													    	<a href="#" ><img v-bind:src="'http://images.stricklands.com/vin/'+ vehicle.fldStockNo + '-15.jpg'" alt="" width="500" height="375"/></a>
+													    </div>
+												    	<div class="carousel-item">
+													    	<a href="#" ><img v-bind:src="'http://images.stricklands.com/vin/'+ vehicle.fldStockNo + '-16.jpg'" alt="" width="500" height="375"/></a>
+													    </div>
+												    	<div class="carousel-item">
+													    	<a href="#" ><img v-bind:src="'http://images.stricklands.com/vin/'+ vehicle.fldStockNo + '-17.jpg'" alt="" width="500" height="375"/></a>
+													    </div>
+												    	<div class="carousel-item">
+													    	<a href="#" ><img v-bind:src="'http://images.stricklands.com/vin/'+ vehicle.fldStockNo + '-18.jpg'" alt="" width="500" height="375"/></a>
+													    </div>
+												    	<div class="carousel-item">
+													    	<a href="#" ><img v-bind:src="'http://images.stricklands.com/vin/'+ vehicle.fldStockNo + '-19.jpg'" alt="" width="500" height="375"/></a>
+													    </div>
+												    	<div class="carousel-item">
+													    	<a href="#" ><img v-bind:src="'http://images.stricklands.com/vin/'+ vehicle.fldStockNo + '-20.jpg'" alt="" width="500" height="375"/></a>
+													    </div>
 														
-											        	/*$name = "/home/adminstrick/images.stricklands.com/vin/";
-														$name .= $row_rs_list['fldStockNo'];						
-														$name .= "-" . $i . ".jpg";*/
-											        	//if (@GetImageSize($name)) {}
-											        	$vinNo = "{{ vehicle.fldStockNo }}";
-											        
-											        $name = "http://images.stricklands.com/vin/". $vinNo . "-1.jpg";
-
-											        $name = "/home/adminstrick/images.stricklands.com/vin/". $vinNo ."-1.jpg";
-
-
-													//if (@GetImageSize($name)) {
-													//http://images.stricklands.com/vin/171835A-1.jpg
-													if (@getimagesize($name)) {
-										            	for ($i=2;$i<=7;$i++)
-														{
-															$namepath = "/home/adminstrick/images.stricklands.com/vin/" . $vinNo . "-" . $i . ".jpg";
-															if (@getimagesize($namepath)) {
-
-														    	if ($i == 2) {
-													            	echo '<div class="carousel-item active">';
-													            } else {
-													            	echo '<div class="carousel-item">';
-													            }
-														        echo '<a href="#" ><img src="http://images.stricklands.com/vin/'.'-'.$i.'.jpg" alt="" width="500" height="375"/></a>';
-														        echo '</div>';
-														    }
-														}
-
-													}
-												            	   
-													?>
-
+													
 													
 												</div>
 												<a class="carousel-control-prev" href="#carousel-example-generic" role="button" data-slide="prev">
@@ -443,7 +472,7 @@
 									</div>
 									<div class="col-sm-8">
 										<span class="text-left">
-											<a class="text-success" href="http://www.stricklands.com/detail.php?stockno=@{{ vehicle.fldStockNo }}" target="_blank">Website Link</a>
+											<a class="text-success" :href="'http://www.stricklands.com/detail.php?stockno='+vehicle.fldStockNo" target="_blank">Website Link</a>
 										</span>
 									</div>
 								</div>
@@ -519,14 +548,16 @@
 
         data: {
             passingData: 0,
-            vehicle: ''
+            vehicle: '',
+            rootUrl : "{{ env('BASE_URL') }}",
+            firstElement: 2
         },
 
         methods: {
             showModal: function(id) {
                 /*this.passingData = true;*/
                 this.passingData = id;
-                $.getJSON('http://localhost/php/freelancer/stricklands/public/getimagedata/'+this.passingData, function(messages){
+                $.getJSON(this.rootUrl + '/getimagedata/'+this.passingData, function(messages){
                     this.vehicle = messages;
                 }.bind(this));
             }
