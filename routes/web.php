@@ -12,6 +12,7 @@ Route::get('logout', 'Admin\AuthController@doLogout')->name('logout');
 
 
 Route::get('test', 'Admin\AdminController@test')->name('test');
+Route::get('gettestdata/{id}', 'Admin\AdminController@getTestData')->name('get-test-data');
 
 
 

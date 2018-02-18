@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\User;
 use App\Vehicle;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -24,6 +25,17 @@ class AdminController extends Controller
     {
     	return view('test');
     }
+
+
+
+    public function getTestData($id)
+    {
+    	$user = User::find($id);
+    	return $user;
+    }
+
+
+
 
 
 }
