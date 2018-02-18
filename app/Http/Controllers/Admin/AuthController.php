@@ -31,7 +31,7 @@ class AuthController extends Controller
         if ( $hasUser ) {
             Auth::login($hasUser);
             
-            return redirect()->route('inventory-search')->with('success', 'You have successfully logged in.');            
+            return redirect()->route('index-dashboard')->with('success', 'You have successfully logged in.');            
         }  else {
             return redirect()->back()->with('danger', "Wrong Username / Password");
         } 	
