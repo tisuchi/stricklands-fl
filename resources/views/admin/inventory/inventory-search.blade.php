@@ -35,8 +35,6 @@
 				<h1>Vehicle Inventory {{ !empty($numberofdays)? "- Last $numberofdays Days" : ''}} </h1>
 				</div>
 
-
-
 			</div>
 
 			
@@ -185,7 +183,7 @@
 			                          	</td>
 										<td> 
 
-											<a class="call-pop-over-function call-modal" href="?{{ $vehicle->fldStockNo }}" data-toggle="modal" data-id="{{ $vehicle->fldStockNo }}" id="popover-{{ $vehicle->fldStockNo }}" data-trigger="hover" data-placement="right" data-container="body" data-original-title="{{ $vehicle->fldYear ." ". $vehicle->fldMake ." ". $vehicle->fldModel ." ". $vehicle->fldModelNo }}" data-content="STK# {{ $vehicle->fldStockNo }} || Notes: {{ $vehicle->fldComments }}" data-target="#default-1" data-tippy-html="#contentpopup-{{ $vehicle->fldStockNo }}" data-tippy-interactive="true" v-tippy="{ placement : 'left',  arrow: true, theme : 'stricklands'}">
+											<a class="call-pop-over-function call-modal" href="?{{ $vehicle->fldStockNo }}" data-toggle="modal" data-id="{{ $vehicle->fldStockNo }}" id="popover-{{ $vehicle->fldStockNo }}" data-trigger="hover" data-placement="right" data-container="body" data-original-title="{{ $vehicle->fldYear ." ". $vehicle->fldMake ." ". $vehicle->fldModel ." ". $vehicle->fldModelNo }}" data-content="STK# {{ $vehicle->fldStockNo }} || Notes: {{ $vehicle->fldComments }}" data-target="#default-1" data-tippy-html="#contentpopup-{{ $vehicle->fldStockNo }}" data-tippy-interactive="true" v-tippy="{ placement : 'left',  arrow: true, theme : 'stricklands'}" v-on:click="showModal('{{ $vehicle->fldStockNo }}')">
 
 											<div id="contentpopup-{{ $vehicle->fldStockNo }}" style="display: none; width: 400px !important; background: #d0d0d0 !important;" v-tippy-html>
 											    <div>
@@ -212,7 +210,7 @@
 										
 
 										<td>
-											<a href="" data-toggle="modal" data-target="#default-1" style="color: #000;" @click="showModal('{{ $vehicle->fldStockNo }}')">
+											<a href="" data-toggle="modal" data-target="#default-1" style="color: #000;" v-on:click="showModal('{{ $vehicle->fldStockNo }}')">
 												<center>
 													<?php 
 
@@ -282,7 +280,7 @@
 							@{{ vehicle.fldMake }} 
 							@{{ vehicle.fldModel }} 
 							@{{ vehicle.fldModelNo }} - 
-							@{{ vehicle.fldRetail }}
+							$@{{ vehicle.fldRetail }}
 						</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						  <span aria-hidden="true">×</span>
@@ -533,7 +531,7 @@
 				  </div>
 				</div>
 			</div>
-
+			
 
 
 
@@ -583,6 +581,14 @@
 	});
 
 
+	$('.call-modal').hover(
+		function() {
+			var id = $( this ).attr("data-id");
+			$("#popover-"+id).popover({ trigger: "hover" });
+		}
+	);
+
+
 	
 
 
@@ -603,9 +609,8 @@
 
         methods: {
             showModal: function(id) {
-                /*this.passingData = true;*/
                 this.passingData = id;
-                $.getJSON(this.rootUrl + '/getimagedata/'+this.passingData, function(messages){
+                $.getJSON('http://newadmin.519stricklands.com/getimagedata/'+this.passingData, function(messages){
                     this.vehicle = messages;
                 }.bind(this));
             }
