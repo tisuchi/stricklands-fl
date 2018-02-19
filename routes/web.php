@@ -22,7 +22,6 @@ Route::get('getimagedata/{id}', 'Admin\AdminController@getImageData')->name('get
 
 
 Route::group(['middleware' => 'auth'], function () {
-	//admin/inventory/search
 	
 	Route::group(['prefix' => 'admin'], function (){
 

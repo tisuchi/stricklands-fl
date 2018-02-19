@@ -179,7 +179,7 @@
 										
 
 										<td>
-											<a href="" data-toggle="modal" data-target="#default-{{ $vehicle->fldStockNo }}" style="color: #000;">
+											<a href="" data-toggle="modal" data-target="#default-1" style="color: #000;" @click="showModal('{{ $vehicle->fldStockNo }}')">
 												<center>
 													<?php 
 
