@@ -2,6 +2,25 @@
 
 @section('content')
 
+<style>
+
+.tippy-tooltip.stricklands-theme {
+  /* Your styling here. Example: */
+  background-color: #e6e6e6;
+  border: 2px solid #ccc;
+  color: #000;
+}
+
+
+.tippy-popper[x-placement^=left] .tippy-tooltip.stricklands-theme .tippy-arrow {
+  /* Your arrow styling here. */
+  background-color: #e6e6e6;
+  color: #e6e6e6;
+}
+
+
+</style>
+
 
 
 <link rel="stylesheet" type="text/css" href="{{asset('app-assets/vendors/css/tables/datatable/datatables.min.css')}}">
@@ -138,7 +157,7 @@
                 <div class="card-content collapse show">
                   <div class="card-body card-dashboard">
                     {{-- <table class="table table-striped table-bordered zero-configuration scroll-horizontal dataTable table-sm"> --}}
-                    <table class="table nowrap table-striped table-bordered scroll-horizontal table-responsive-sm table-xs compact" cellspacing="0" width="100%">
+                    <table class="table nowrap table-striped table-bordered scroll-horizontal table-responsive-sm table-xs compact table-hover" cellspacing="0" width="100%">
                       <thead>
                         <tr>
 							<th></th>
@@ -166,7 +185,18 @@
 			                          	</td>
 										<td> 
 
-											<a class="call-pop-over-function call-modal" href="?{{ $vehicle->fldStockNo }}" data-toggle="modal" data-id="{{ $vehicle->fldStockNo }}" id="popover-{{ $vehicle->fldStockNo }}" data-trigger="hover" data-placement="right" data-container="body" data-original-title="{{ $vehicle->fldYear ." ". $vehicle->fldMake ." ". $vehicle->fldModel ." ". $vehicle->fldModelNo }}" data-content="STK# {{ $vehicle->fldStockNo }} || Notes: {{ $vehicle->fldComments }}" data-target="#default-1" v-on:click="showModal('{{ $vehicle->fldStockNo }}')">
+											<a class="call-pop-over-function call-modal" href="?{{ $vehicle->fldStockNo }}" data-toggle="modal" data-id="{{ $vehicle->fldStockNo }}" id="popover-{{ $vehicle->fldStockNo }}" data-trigger="hover" data-placement="right" data-container="body" data-original-title="{{ $vehicle->fldYear ." ". $vehicle->fldMake ." ". $vehicle->fldModel ." ". $vehicle->fldModelNo }}" data-content="STK# {{ $vehicle->fldStockNo }} || Notes: {{ $vehicle->fldComments }}" data-target="#default-1" data-tippy-html="#contentpopup1" data-tippy-interactive="true" v-tippy="{ placement : 'left',  arrow: true, theme : 'stricklands'}">
+
+											<div id="contentpopup1" style="display: none; width: 400px !important; background: #d0d0d0 !important;" v-tippy-html>
+											    <div>
+											        <h5>{{ $vehicle->fldYear ." ". $vehicle->fldMake ." ". $vehicle->fldModel ." ". $vehicle->fldModelNo }}</h5>
+											        <p style="width: 400px;">
+											        	STK# {{ $vehicle->fldStockNo }} || Notes: {{ $vehicle->fldComments }}
+											        </p>
+											    </div>
+											</div>
+
+
 												<?php 
 													if(substr($vehicle->fldYear ." ". $vehicle->fldMake ." ". $vehicle->fldModel ." ". $vehicle->fldModelNo, 0, 20) == false){
 														echo $vehicle->fldYear ." ". $vehicle->fldMake ." ". $vehicle->fldModel ." ". $vehicle->fldModelNo;
@@ -174,6 +204,9 @@
 														echo substr($vehicle->fldYear ." ". $vehicle->fldMake ." ". $vehicle->fldModel ." ". $vehicle->fldModelNo, 0, 20) . "...";														
 													}
 												?>
+												
+												
+												
 											</a> 
 										</td>
 										
@@ -522,25 +555,29 @@
 <script src="{{asset('app-assets/js/scripts/tables/datatables/datatable-basic.js')}}" type="text/javascript"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
 
+<!-- From CDN -->
+<script src="https://unpkg.com/vue-tippy/dist/vue-tippy.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue-tippy/dist/vue-tippy.min.js"></script>
+
 
 <script>
 
 	$(document).ready(function(){
 		
-		$('.call-pop-over-function').hover(
+		/*$('.call-pop-over-function').hover(
 			function() {
 				var id = $( this ).attr("data-id");
 				$("#popover-"+id).popover({ trigger: "hover" });
 			}	
-		);
+		);*/
 
 
-		$('.call-modal').hover(
+		/*$('.call-modal').hover(
 			function() {
 				var id = $( this ).attr("data-id");
 				$("#popover-"+id).popover({ trigger: "hover" });
 			}
-		);
+		);*/
 
 
 	});
