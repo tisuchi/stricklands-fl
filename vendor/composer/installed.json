@@ -1,50 +1,5 @@
 [
     {
-        "name": "symfony/thanks",
-        "version": "v1.0.5",
-        "version_normalized": "1.0.5.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/symfony/thanks.git",
-            "reference": "c757ee0c9dcfcc0e9e30fbbbdcadeb9dcc9aaaf4"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/symfony/thanks/zipball/c757ee0c9dcfcc0e9e30fbbbdcadeb9dcc9aaaf4",
-            "reference": "c757ee0c9dcfcc0e9e30fbbbdcadeb9dcc9aaaf4",
-            "shasum": ""
-        },
-        "require": {
-            "composer-plugin-api": "^1.0",
-            "php": "^5.5.9|^7.0.0"
-        },
-        "time": "2018-01-26T10:44:34+00:00",
-        "type": "composer-plugin",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "1.0-dev"
-            },
-            "class": "Symfony\\Thanks\\Thanks"
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Symfony\\Thanks\\": "src"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Nicolas Grekas",
-                "email": "p@tchwork.com"
-            }
-        ],
-        "description": "Give thanks (in the form of a GitHub ⭐) to your fellow PHP package maintainers (not limited to Symfony components)!"
-    },
-    {
         "name": "hamcrest/hamcrest-php",
         "version": "v2.0.0",
         "version_normalized": "2.0.0.0",
@@ -3859,44 +3814,36 @@
         ]
     },
     {
-        "name": "maximebf/debugbar",
-        "version": "1.13.1",
-        "version_normalized": "1.13.1.0",
+        "name": "symfony/thanks",
+        "version": "v1.0.6",
+        "version_normalized": "1.0.6.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/maximebf/php-debugbar.git",
-            "reference": "afee79a236348e39a44cb837106b7c5b4897ac2a"
+            "url": "https://github.com/symfony/thanks.git",
+            "reference": "9474ce305253c2f0bc20322ff8e9973cf25c9a94"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/afee79a236348e39a44cb837106b7c5b4897ac2a",
-            "reference": "afee79a236348e39a44cb837106b7c5b4897ac2a",
+            "url": "https://api.github.com/repos/symfony/thanks/zipball/9474ce305253c2f0bc20322ff8e9973cf25c9a94",
+            "reference": "9474ce305253c2f0bc20322ff8e9973cf25c9a94",
             "shasum": ""
         },
         "require": {
-            "php": ">=5.3.0",
-            "psr/log": "^1.0",
-            "symfony/var-dumper": "^2.6|^3.0"
+            "composer-plugin-api": "^1.0",
+            "php": "^5.5.9|^7.0.0"
         },
-        "require-dev": {
-            "phpunit/phpunit": "^4.0|^5.0"
-        },
-        "suggest": {
-            "kriswallsmith/assetic": "The best way to manage assets",
-            "monolog/monolog": "Log using Monolog",
-            "predis/predis": "Redis storage"
-        },
-        "time": "2017-01-05T08:46:19+00:00",
-        "type": "library",
+        "time": "2018-02-02T13:47:40+00:00",
+        "type": "composer-plugin",
         "extra": {
             "branch-alias": {
-                "dev-master": "1.13-dev"
-            }
+                "dev-master": "1.0-dev"
+            },
+            "class": "Symfony\\Thanks\\Thanks"
         },
         "installation-source": "dist",
         "autoload": {
             "psr-4": {
-                "DebugBar\\": "src/DebugBar/"
+                "Symfony\\Thanks\\": "src"
             }
         },
         "notification-url": "https://packagist.org/downloads/",
@@ -3905,71 +3852,10 @@
         ],
         "authors": [
             {
-                "name": "Maxime Bouroumeau-Fuseau",
-                "email": "maxime.bouroumeau@gmail.com",
-                "homepage": "http://maximebf.com"
-            },
-            {
-                "name": "Barry vd. Heuvel",
-                "email": "barryvdh@gmail.com"
+                "name": "Nicolas Grekas",
+                "email": "p@tchwork.com"
             }
         ],
-        "description": "Debug bar in the browser for php application",
-        "homepage": "https://github.com/maximebf/php-debugbar",
-        "keywords": [
-            "debug",
-            "debugbar"
-        ]
-    },
-    {
-        "name": "barryvdh/laravel-debugbar",
-        "version": "v2.4.3",
-        "version_normalized": "2.4.3.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/barryvdh/laravel-debugbar.git",
-            "reference": "d7c88f08131f6404cb714f3f6cf0642f6afa3903"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/d7c88f08131f6404cb714f3f6cf0642f6afa3903",
-            "reference": "d7c88f08131f6404cb714f3f6cf0642f6afa3903",
-            "shasum": ""
-        },
-        "require": {
-            "illuminate/support": "5.1.*|5.2.*|5.3.*|5.4.*|5.5.*",
-            "maximebf/debugbar": "~1.13.0",
-            "php": ">=5.5.9",
-            "symfony/finder": "~2.7|~3.0"
-        },
-        "time": "2017-07-21T11:56:48+00:00",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Barryvdh\\Debugbar\\": "src/"
-            },
-            "files": [
-                "src/helpers.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Barry vd. Heuvel",
-                "email": "barryvdh@gmail.com"
-            }
-        ],
-        "description": "PHP Debugbar integration for Laravel",
-        "keywords": [
-            "debug",
-            "debugbar",
-            "laravel",
-            "profiler",
-            "webprofiler"
-        ]
+        "description": "Give thanks (in the form of a GitHub ⭐) to your fellow PHP package maintainers (not limited to Symfony components)!"
     }
 ]
