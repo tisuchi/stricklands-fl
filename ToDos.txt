@@ -15,9 +15,9 @@ OK ==	2. There is a tooltip missing from "features" in the list that decodes the
 
 OK ==	3. Modal Popup, the whole image is not being included, the image needs to be wider to include the entire picture, right now it is chopped off and does not reveal the whole picture.
 
-	4. Is it possible to make the drop down menus on the search page smaller so they all fit on the same line, the same as the original?
+OK ==	4. Is it possible to make the drop down menus on the search page smaller so they all fit on the same line, the same as the original?
 
-	5. Please remove the mega menu for now at the very top, also the search, language, notifications and chat, those may be added in later but for now we do not need them.
+OK ==	5. Please remove the mega menu for now at the very top, also the search, language, notifications and chat, those may be added in later but for now we do not need them.
 
 	6. At the top of the search page there is a line that includes:
 	Used Available For Sale: 561|| New Vehicles For Sale: 463|| In Transit: 72|| Wholesale: 97
