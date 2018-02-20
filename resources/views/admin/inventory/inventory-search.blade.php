@@ -190,7 +190,6 @@
 			                          		<i class="fa fa-hand-o-up"></i>
 			                          	</td>
 										<td> 
-
 											<a class="call-pop-over-function call-modal" href="?{{ $vehicle->fldStockNo }}" data-toggle="modal" data-id="{{ $vehicle->fldStockNo }}" id="popover-{{ $vehicle->fldStockNo }}" data-trigger="hover" data-placement="right" data-container="body" data-original-title="{{ $vehicle->fldYear ." ". $vehicle->fldMake ." ". $vehicle->fldModel ." ". $vehicle->fldModelNo }}" data-content="STK# {{ $vehicle->fldStockNo }} || Notes: {{ $vehicle->fldComments }}" data-target="#default-1" data-tippy-html="#contentpopup-{{ $vehicle->fldStockNo }}" data-tippy-interactive="true" v-tippy="{ placement : 'left',  arrow: true, theme : 'stricklands'}" v-on:click="showModal('{{ $vehicle->fldStockNo }}')">
 
 											<div id="contentpopup-{{ $vehicle->fldStockNo }}" style="display: none; width: 400px !important; background: #d0d0d0 !important;" v-tippy-html>
@@ -204,11 +203,7 @@
 
 
 												<?php 
-													if(substr($vehicle->fldYear ." ". $vehicle->fldMake ." ". $vehicle->fldModel ." ". $vehicle->fldModelNo, 0, 20) == false){
-														echo $vehicle->fldYear ." ". $vehicle->fldMake ." ". $vehicle->fldModel ." ". $vehicle->fldModelNo;
-													} else {
-														echo substr($vehicle->fldYear ." ". $vehicle->fldMake ." ". $vehicle->fldModel ." ". $vehicle->fldModelNo, 0, 20) . "...";														
-													}
+													echo $vehicle->fldYear ." ". $vehicle->fldMake ." ". $vehicle->fldModel ." ". $vehicle->fldModelNo;
 												?>
 												
 												
