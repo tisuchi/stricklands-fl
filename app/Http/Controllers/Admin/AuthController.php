@@ -49,4 +49,22 @@ class AuthController extends Controller
 
 
 
+
+
+    public function showForgetPassword()
+    {
+        return view('admin.pages.forget');
+    }
+
+
+
+    public function doForgetPassword()
+    {
+        $email = request()->input('email');
+        
+    }
+
+
+
+
 }
