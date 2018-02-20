@@ -3,9 +3,10 @@ ToDos
 
 
 ________ 20 February 2018 ________
-1.Search
-	Please adjust the column widths and font size so we can get the full vehicle title in the list, we can change the column headings for Days and Engine to just "D" and "Eng". 
-	On some pages, in the data tables, a horizontal scroll bar appears and I would like to avoid seeing that happen as much as possible, this happens because of the color property, please limit the text on that field with css ellipsis (text-overflow: ellipsis).
+
+OK ==	1.Search
+			Please adjust the column widths and font size so we can get the full vehicle title in the list, we can change the column headings for Days and Engine to just "D" and "Eng". 
+			On some pages, in the data tables, a horizontal scroll bar appears and I would like to avoid seeing that happen as much as possible, this happens because of the color property, please limit the text on that field with css ellipsis (text-overflow: ellipsis).
 
 
 	2. There is a tooltip missing from "features" in the list that decodes the codes into the actual options in readable words.

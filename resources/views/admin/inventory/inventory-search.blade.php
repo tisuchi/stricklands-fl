@@ -11,6 +11,14 @@
   color: #000;
 }
 
+.tippy-tooltip.stricklandsfeature-theme {
+  /* Your styling here. Example: */
+  background-color: #e6e6e6;
+  border: 2px solid #ccc;
+  width: 200px;
+  color: #000;
+}
+
 
 .tippy-popper[x-placement^=left] .tippy-tooltip.stricklands-theme .tippy-arrow {
   /* Your arrow styling here. */
@@ -239,7 +247,20 @@
 												{{ substr($vehicle->fldExteriorColor, 0, 7) }}
 											</span>
 										</td>
-										<td>{{ substr($vehicle->fldAllCodes, 0, 10) }}</td>
+										<td data-tippy-html="#contentfeaturepopup-{{ $vehicle->fldStockNo }}" data-tippy-interactive="true" v-tippy="{ placement : 'right',  arrow: true, theme : 'stricklandsfeature'}" v-on:click="showModal('{{ $vehicle->fldStockNo }}')">{{ substr($vehicle->fldAllCodes, 0, 10) }}
+
+
+												
+												<div id="contentfeaturepopup-{{ $vehicle->fldStockNo }}" style="display: none; width: 400px !important; background: #d0d0d0 !important;" v-tippy-html>
+												    <div>
+												        <h5>
+												        	{{ allCodesToFeaturesConvert($vehicle->fldAllCodes) }}
+												        </h5>
+												        {{-- <p style="width: 400px;">
+												        </p> --}}
+												    </div>
+												</div>
+										</td>
 										<td>{{ $vehicle->fldOdometer }}</td>
 										<td>{{ $vehicle->fldRetail }}</td>
 			                        </tr>
@@ -566,12 +587,12 @@
 
 	$(document).ready(function(){
 		
-		/*$('.call-pop-over-function').hover(
+		$('.call-pop-over-function').hover(
 			function() {
-				var id = $( this ).attr("data-id");
-				$("#popover-"+id).popover({ trigger: "hover" });
+				var id = $( this ).attr("data-id-popover");
+				$("#popoverfeatures-"+id).popover({ trigger: "hover" });
 			}	
-		);*/
+		);
 
 
 		/*$('.call-modal').hover(
