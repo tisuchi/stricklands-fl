@@ -9,11 +9,11 @@ OK ==	1.Search
 			On some pages, in the data tables, a horizontal scroll bar appears and I would like to avoid seeing that happen as much as possible, this happens because of the color property, please limit the text on that field with css ellipsis (text-overflow: ellipsis).
 
 
-	2. There is a tooltip missing from "features" in the list that decodes the codes into the actual options in readable words.
-	When viewing a page under the main heading, I would like to see the menu system in the navigation expanded as in the template to show the available inventory links when you are on a page in that section.
+OK ==	2. There is a tooltip missing from "features" in the list that decodes the codes into the actual options in readable words.
+		When viewing a page under the main heading, I would like to see the menu system in the navigation expanded as in the template to show the available inventory links when you are on a page in that section.
 
 
-	3. Modal Popup, the whole image is not being included, the image needs to be wider to include the entire picture, right now it is chopped off and does not reveal the whole picture.
+OK ==	3. Modal Popup, the whole image is not being included, the image needs to be wider to include the entire picture, right now it is chopped off and does not reveal the whole picture.
 
 	4. Is it possible to make the drop down menus on the search page smaller so they all fit on the same line, the same as the original?
 

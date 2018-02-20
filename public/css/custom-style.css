@@ -3,3 +3,10 @@ table.dataTable tr, table.dataTable td, table.dataTable th {
 	margin: 0 !important;
 	font-size: 14px;
 }
+
+
+.dropdown-panel .form-group {
+	width: 100px;
+	padding: 0 5px;
+}
+
