@@ -13,6 +13,8 @@ Route::get('logout', 'Admin\AuthController@doLogout')->name('logout');
 Route::get('forget', 'Admin\AuthController@showForgetPassword')->name('forget-password');
 Route::post('forget', 'Admin\AuthController@doForgetPassword')->name('forget-password');
 
+Route::get('confirm-password-reset/{hash}', 'Admin\AuthController@confirmPasswordReset')->name('confirm-password-Reset');
+
 
 Route::get('test', 'Admin\AdminController@test')->name('test');
 
