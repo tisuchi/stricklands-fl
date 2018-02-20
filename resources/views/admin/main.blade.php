@@ -34,6 +34,7 @@
   
   <!-- BEGIN Custom CSS-->
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{asset('css/custom-style.css') }}">
   <!-- END Custom CSS-->
 
   <link href="{{ asset('admin_assets/js/toastr/toastr.css') }}" type="text/css" rel="stylesheet">

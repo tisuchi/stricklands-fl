@@ -1,0 +1,9 @@
+table.dataTable tr, table.dataTable td, table.dataTable th {
+	padding: 5px 5px !important;
+	margin: 0 !important;
+	font-size: 13px;
+}
+
+table.dataTable {
+	margin: 0;
+}

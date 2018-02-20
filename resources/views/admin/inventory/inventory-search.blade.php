@@ -155,22 +155,22 @@
                 <div class="card-content collapse show">
                   <div class="card-body card-dashboard">
                     {{-- <table class="table table-striped table-bordered zero-configuration scroll-horizontal dataTable table-sm"> --}}
-                    <table class="table nowrap table-striped table-bordered scroll-horizontal table-responsive-sm table-xs compact table-hover" cellspacing="0" width="100%">
-                      <thead>
-                        <tr>
-							<th></th>
-							<th>Vehicle</th>
-							<th></th>
-							<th>Stock</th>
-							<th>L</th>
-							<th>Days</th>
-							<th>Vin</th>
-							<th>Engine</th>
-							<th>Trans</th>
-							<th>Colour</th>
-							<th>Features</th>
-							<th>KM's</th>
-							<th>Price</th>
+                    <table id="inventory-datatable" class="table nowrap table-striped table-bordered scroll-horizontal table-responsive-sm table-xs table-hover compact dataTable" cellspacing="0" width="100%">
+                      <thead class="compact">
+                        <tr class="compact pr-0 pl-0 mr-0 ml-0">
+							<th class="text-left"></th>
+							<th class="text-left">Vehicle</th>
+							<th class="text-left"></th>
+							<th class="text-left">Stock</th>
+							<th class="text-left">L</th>
+							<th class="text-left">D</th>
+							<th class="text-left">Vin</th>
+							<th class="text-left">Eng.</th>
+							<th class="text-left">Trans</th>
+							<th class="text-left">Color</th>
+							<th class="text-left">Feature</th>
+							<th class="text-left">KM's</th>
+							<th class="text-left">Price</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -234,7 +234,11 @@
 										<td>{{ $vehicle->fldShortVINNo }}</td>
 										<td>{{ $vehicle->fldCyl }}</td>
 										<td>{{ $vehicle->fldTransmission }}</td>
-										<td>{{ $vehicle->fldExteriorColor }}</td>
+										<td>
+											<span title="{{ $vehicle->fldExteriorColor }}">
+												{{ substr($vehicle->fldExteriorColor, 0, 7) }}
+											</span>
+										</td>
 										<td>{{ substr($vehicle->fldAllCodes, 0, 10) }}</td>
 										<td>{{ $vehicle->fldOdometer }}</td>
 										<td>{{ $vehicle->fldRetail }}</td>
@@ -244,17 +248,17 @@
                       </tbody>
                       <tfoot>
                         <tr>
-                          <th></th>
+                          	<th></th>
 							<th>Vehicle</th>
 							<th></th>
 							<th>Stock</th>
 							<th>L</th>
-							<th>Days</th>
+							<th>D</th>
 							<th>Vin</th>
-							<th>Engine</th>
+							<th>Eng.</th>
 							<th>Trans</th>
-							<th>Colour</th>
-							<th>Features</th>
+							<th class="text-left">Color</th>
+							<th class="text-left">Feature</th>
 							<th>KM's</th>
 							<th>Price</th>
                         </tr>
@@ -576,6 +580,10 @@
 				$("#popover-"+id).popover({ trigger: "hover" });
 			}
 		);*/
+
+
+		
+		$('#inventory-datatable').DataTable();
 
 
 	});
