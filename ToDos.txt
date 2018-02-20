@@ -2,9 +2,41 @@ ToDos
 ======================
 
 
+________ 20 February 2018 ________
+1.Search
+	Please adjust the column widths and font size so we can get the full vehicle title in the list, we can change the column headings for Days and Engine to just "D" and "Eng". 
+	On some pages, in the data tables, a horizontal scroll bar appears and I would like to avoid seeing that happen as much as possible, this happens because of the color property, please limit the text on that field with css ellipsis (text-overflow: ellipsis).
+
+
+	2. There is a tooltip missing from "features" in the list that decodes the codes into the actual options in readable words.
+	When viewing a page under the main heading, I would like to see the menu system in the navigation expanded as in the template to show the available inventory links when you are on a page in that section.
+
+
+	3. Modal Popup, the whole image is not being included, the image needs to be wider to include the entire picture, right now it is chopped off and does not reveal the whole picture.
+
+	4. Is it possible to make the drop down menus on the search page smaller so they all fit on the same line, the same as the original?
+
+	5. Please remove the mega menu for now at the very top, also the search, language, notifications and chat, those may be added in later but for now we do not need them.
+
+	6. At the top of the search page there is a line that includes:
+	Used Available For Sale: 561|| New Vehicles For Sale: 463|| In Transit: 72|| Wholesale: 97
+	Please include this on the search pages.
+
+
+	7. For the 4 Days and 14 Days, please have the page load all the vehicles that have arrived in that amount of days without the user having to click filter.
+
+
+	8. for the login page. the forgot password function is needed. and the password is needed encrypt in the database.
+
+
+
+
+
+
+
 
 ________ 16 February 2018 ________
-1. image problem  for the vehicle in search page pop up. so  search page speed.
+OK  ============ 1. image problem  for the vehicle in search page pop up. so  search page speed.
 OK 	============  2. dashboard empty page connect.
 OK 	============ 3. header login user name. : top right: login username.
 OK 	============ 4. logo change. : login page, and header part.
