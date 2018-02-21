@@ -4,11 +4,12 @@ namespace App\Http\Controllers\Admin;
 
 use Auth;
 use App\User;
-use PHPMailer;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Controller;
+require_once(app_path().'/Libraries/PHPMailer-5.2-stable/PHPMailerAutoload.php');
+use phpmailer;
 
 class AuthController extends Controller
 {
@@ -65,26 +66,37 @@ class AuthController extends Controller
     {
 
         //sendEmail('info@strikerlands.com', 'Testing email', 'tisuchi@gmail.com');
-        $mail = new \PHPMailer(true);
-             try{
-                $mail->isSMTP();
-                $mail->CharSet = ''; #set it utf->8
-                $mail->SMTPAuth = true ; #set it true
-                $mail->SMTPSecure = 'ssl';
-                $mail->Host = 'host.stricklands.com'; #gmail has host  smtp.gmail.com
-                $mail->Port = 465; #gmail has port  587 . without double quotes
-                $mail->Username = 'freelancer@519stricklands.com'; #your username. actually your email
-                $mail->Password = '~X@xU9PMaG;k'; # your password. your mail password
-                $mail->setFrom('hello@stricklands.com', 'Hello'); 
-                $mail->Subject = "Testing Email";
-                $mail->MsgHTML('This is for testing. How is going?');
-                $mail->addAddress(['tisuchi@gmail.com'] ,['Thouhedul Islam']); 
-                $mail->send();
-             }catch(phpmailerException $e){
-                dd($e);
-             }catch(Exception $e){
-                dd($e);
-             } 
+        $mail = new PHPMailer;
+
+        $mail->isSMTP();                                      // Set mailer to use SMTP
+        $mail->Host = 'host.stricklands.com';                       // Specify main and backup server
+        $mail->SMTPAuth = true;                               // Enable SMTP authentication
+        $mail->Username = 'freelancer@519stricklands.com';                   // SMTP username
+        $mail->Password = '~X@xU9PMaG;k';               // SMTP password
+        //$mail->Host = 'smtp.gmail.com';
+        //$mail->Username = 'ts92513@gmail.com';
+        //$mail->Password = 'happy216';
+        $mail->SMTPSecure = 'ssl';                            // Enable encryption, 'ssl' also accepted
+        $mail->Port = 465;                                    //Set the SMTP port number - 587 for authenticated TLS
+        $mail->setFrom('info@stricklands.com', 'Enquiry');
+        //$mail->SMTPDebug = 2;
+        //$mail->setFrom('websites@stricklandsmail.ca', 'Stricklands Leads');     //Set who the message is to be sent from
+        //$mail->addReplyTo('websites@stricklandsmail.ca', 'Stricklands Leads');  //Set an alternative reply-to address
+        $mail->addAddress('tisuchi@gmail.com', 'Thouhedul Islam');  // Add a recipient :franklennon@live.ca
+        //$mail->addAddress('leadbackup@stricklands.com', 'Lead Backup');  // Add a recipient
+        //$mail->addAddress('leads@stricklands.motosnap.com');               // Name is optional
+        $mail->isHTML(false);
+        
+        $mail->Subject = "Testing Email";
+        $mail->Body  = "I am sorry Sharmin";
+        $result = $mail->send();
+        if(!$result) {
+                //echo 'Message could not be sent.';
+            return 'Mailer Error: ' . $mail->ErrorInfo;
+        }else{
+            return 'success';
+        }
+        
 
 
 
