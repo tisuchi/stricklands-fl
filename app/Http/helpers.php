@@ -162,57 +162,39 @@ function allCodesToFeaturesConvert($allCodes)
 
 
 
-function sendEmail($email, $message, $tomail)
+function sendEmail($email, $subject, $message, $tomail)
 {
-	  //Send the email.
-	  // Always set content-type when sending HTML email
-	  $headers = "MIME-Version: 1.0" . "\r\n";
-	  $headers .= "Content-type:text/plain" . "\r\n";
-	  $headers .= 'From: <leads@stricklands.com>' . "\r\n";
-	  //THIS IS HERE TEMPORARILY....BUILD A DATABASE TABLE TO STORE THE BANNED EMAILS AND MAKE A CALL TO CHECK IF THE EMAIL IS BANNED HERE.
-	  if (strcmp('ecuric@cogeco.ca,',$email)==0)
-	  {
-	   		mail("it@stricklands.com", "Blocked Email", $message, $headers);
-	  }
-	  else
-	  {
-		  // mail("leads@stricklands.motosnap.com, leadbackup@stricklands.com", "lead", $message, $headers);
 
+	//sendEmail('info@strikerlands.com', 'Testing email', 'tisuchi@gmail.com');
+    $mail = new PHPMailer;
 
-		   //using new php mailer class
-
-		   $mail = new PHPMailer;
-
-		   $mail->isSMTP();                                      // Set mailer to use SMTP
-		   $mail->Host = 'host.stricklands.com';                       // Specify main and backup server
-		   $mail->SMTPAuth = true;                               // Enable SMTP authentication
-		   $mail->Username = 'freelancer@519stricklands.com';                   // SMTP username
-		   $mail->Password = '~X@xU9PMaG;k';               // SMTP password
-		   //$mail->Host = 'smtp.gmail.com';
-		   //$mail->Username = 'ts92513@gmail.com';
-		   //$mail->Password = 'happy216';
-		   $mail->SMTPSecure = 'ssl';                            // Enable encryption, 'ssl' also accepted
-		   $mail->Port = 465;                                    //Set the SMTP port number - 587 for authenticated TLS
-		   $mail->setFrom($email, $fullname);
-		   //$mail->SMTPDebug = 2;
-		   //$mail->setFrom('websites@stricklandsmail.ca', 'Stricklands Leads');     //Set who the message is to be sent from
-		   //$mail->addReplyTo('websites@stricklandsmail.ca', 'Stricklands Leads');  //Set an alternative reply-to address
-		   $mail->addAddress($tomail, '');  // Add a recipient :franklennon@live.ca
-		   //$mail->addAddress('leadbackup@stricklands.com', 'Lead Backup');  // Add a recipient
-		   //$mail->addAddress('leads@stricklands.motosnap.com');               // Name is optional
-		   $mail->isHTML(true);
-		   
-		   $mail->Subject = "Strickland's Send to Friend";
-		   $message .= '<br/><br/><br/>';
-		   $message .= $url;
-		   
-		   $mail->Body  = $message;
-		   $result = $mail->send();
-		   if(!$result) {
-		     //echo 'Message could not be sent.';
-		    return 'Mailer Error: ' . $mail->ErrorInfo;
-		   }else{
-		    return 'success';
-		   }
-	  	}
+    $mail->isSMTP();                                      // Set mailer to use SMTP
+    $mail->Host = 'host.stricklands.com';                       // Specify main and backup server
+    $mail->SMTPAuth = true;                               // Enable SMTP authentication
+    $mail->Username = 'freelancer@519stricklands.com';                   // SMTP username
+    $mail->Password = '~X@xU9PMaG;k';               // SMTP password
+    //$mail->Host = 'smtp.gmail.com';
+    //$mail->Username = 'ts92513@gmail.com';
+    //$mail->Password = 'happy216';
+    $mail->SMTPSecure = 'ssl';                            // Enable encryption, 'ssl' also accepted
+    $mail->Port = 465;                                    //Set the SMTP port number - 587 for authenticated TLS
+    $mail->setFrom($email, 'Enquiry');
+    //$mail->SMTPDebug = 2;
+    //$mail->setFrom('websites@stricklandsmail.ca', 'Stricklands Leads');     //Set who the message is to be sent from
+    //$mail->addReplyTo('websites@stricklandsmail.ca', 'Stricklands Leads');  //Set an alternative reply-to address
+    $mail->addAddress($tomail, 'Thouhedul Islam');  // Add a recipient :franklennon@live.ca
+    //$mail->addAddress('leadbackup@stricklands.com', 'Lead Backup');  // Add a recipient
+    //$mail->addAddress('leads@stricklands.motosnap.com');               // Name is optional
+    $mail->isHTML(false);
+    
+    $mail->Subject = $subject;
+    $mail->Body  = $message;
+    $result = $mail->send();
+    if(!$result) {
+            //echo 'Message could not be sent.';
+        return 'Mailer Error: ' . $mail->ErrorInfo;
+    }else{
+        return 'success';
+    }
+    
 }

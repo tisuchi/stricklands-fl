@@ -65,49 +65,18 @@ class AuthController extends Controller
     public function doForgetPassword()
     {
 
-        //sendEmail('info@strikerlands.com', 'Testing email', 'tisuchi@gmail.com');
-        $mail = new PHPMailer;
-
-        $mail->isSMTP();                                      // Set mailer to use SMTP
-        $mail->Host = 'host.stricklands.com';                       // Specify main and backup server
-        $mail->SMTPAuth = true;                               // Enable SMTP authentication
-        $mail->Username = 'freelancer@519stricklands.com';                   // SMTP username
-        $mail->Password = '~X@xU9PMaG;k';               // SMTP password
-        //$mail->Host = 'smtp.gmail.com';
-        //$mail->Username = 'ts92513@gmail.com';
-        //$mail->Password = 'happy216';
-        $mail->SMTPSecure = 'ssl';                            // Enable encryption, 'ssl' also accepted
-        $mail->Port = 465;                                    //Set the SMTP port number - 587 for authenticated TLS
-        $mail->setFrom('info@stricklands.com', 'Enquiry');
-        //$mail->SMTPDebug = 2;
-        //$mail->setFrom('websites@stricklandsmail.ca', 'Stricklands Leads');     //Set who the message is to be sent from
-        //$mail->addReplyTo('websites@stricklandsmail.ca', 'Stricklands Leads');  //Set an alternative reply-to address
-        $mail->addAddress('tisuchi@gmail.com', 'Thouhedul Islam');  // Add a recipient :franklennon@live.ca
-        //$mail->addAddress('leadbackup@stricklands.com', 'Lead Backup');  // Add a recipient
-        //$mail->addAddress('leads@stricklands.motosnap.com');               // Name is optional
-        $mail->isHTML(false);
-        
-        $mail->Subject = "Testing Email";
-        $mail->Body  = "I am sorry Sharmin";
-        $result = $mail->send();
-        if(!$result) {
-                //echo 'Message could not be sent.';
-            return 'Mailer Error: ' . $mail->ErrorInfo;
-        }else{
-            return 'success';
-        }
-        
-
-
-
-
-        return "";
         $email = request()->input('email');
         $hasHash = User::where('fld_usr_email', $email)->where('passowrd_recovery_hash', '!=', '<>')->first();
 
         if ($hasHash) {
             //trigger an email for with password reset details
-            
+            $emailContent = "Hello";
+            $emailContent .= "Please click on following link and set your password.";
+            $emailContent .= route('confirm-password-Reset', $hasHash->passowrd_recovery_hash);
+
+            //send email
+            sendEmail('test@stricklands.com', 'Reset Password', $emailContent, 'tisuchi@gmail.com');
+
             return redirect()
                     ->back()->with('success', 'You have successfully requested for password reset.');
 
@@ -133,7 +102,7 @@ class AuthController extends Controller
 
         if ($hasHash) {
             //show password reset form 
-            return "fine";
+            return view('admin.pages.forget');
         } 
 
         return redirect()
