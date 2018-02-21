@@ -145,6 +145,15 @@ class Vehicle extends Model
 
 
 
+    public static function scopeCountCarStats($query, $carStatus){
+        return $query->where('fldStatusCode', $carStatus)
+                    ->count();
+    }
+
+
+
+
+
 
 
 

@@ -55,11 +55,8 @@ class InventoryController extends Controller
         $vehicles = null;
 
         if ($numberofdays !== '') {
-            //$makes = Vehicle::MakeinfoWithNumberOfDays($numberofdays);
-
-            $date = new Carbon;
-            return $date->subDays($numberofdays);
-            $makes = Vehicle::select('fldMake')->where('fldDateReceived', '>', $date->subDays($numberofdays))->orderBy('fldMake', 'desc')->distinct()->paginate(100);
+            
+            $makes = Vehicle::MakeinfoWithNumberOfDays($numberofdays);
 
             //check if there is a parameter in url, start searching
             if(Request()->input('filter')){
@@ -71,6 +68,7 @@ class InventoryController extends Controller
                 $vehicles = $this->inventoryRepository->doSearch(request()->all());
             }
         }
+
 
     	
     	return view('admin.inventory.inventory-search', compact('locations', 'statuscodes', 'types', 'makes', 'vehicles', 'numberofdays'));
