@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Atype;
 use App\Vehicle;
+use Carbon\Carbon;
 use App\Alocation;
 use App\Description;
 use App\Astatuscode;
@@ -54,7 +55,11 @@ class InventoryController extends Controller
         $vehicles = null;
 
         if ($numberofdays !== '') {
-            $makes = Vehicle::MakeinfoWithNumberOfDays($numberofdays);
+            //$makes = Vehicle::MakeinfoWithNumberOfDays($numberofdays);
+
+            $date = new Carbon;
+            return $date->subDays($numberofdays);
+            $makes = Vehicle::select('fldMake')->where('fldDateReceived', '>', $date->subDays($numberofdays))->orderBy('fldMake', 'desc')->distinct()->paginate(100);
 
             //check if there is a parameter in url, start searching
             if(Request()->input('filter')){

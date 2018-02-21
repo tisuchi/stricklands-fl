@@ -27,7 +27,7 @@ OK ==	5. Please remove the mega menu for now at the very top, also the search, l
 	7. For the 4 Days and 14 Days, please have the page load all the vehicles that have arrived in that amount of days without the user having to click filter.
 
 
-	8. for the login page. the forgot password function is needed. and the password is needed encrypt in the database.
+	OK  ==  8. for the login page. the forgot password function is needed. and the password is needed encrypt in the database.
 
 
 
