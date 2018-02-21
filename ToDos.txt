@@ -30,6 +30,8 @@ OK ==	5. Please remove the mega menu for now at the very top, also the search, l
 	OK  ==  8. for the login page. the forgot password function is needed. and the password is needed encrypt in the database.
 
 
+	OK  ==  9. Redirect to login page if session has expired
+
 
 
 
