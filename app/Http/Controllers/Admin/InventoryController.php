@@ -69,9 +69,20 @@ class InventoryController extends Controller
             }
         }
 
+        $stats = '';
+
+        $stats = [
+                    'specificTotal' => $vehicles->count(),
+                    'usedavailable' => (new Vehicle)->CountCarStats(null, 'U'),
+                    'newavailable' => (new Vehicle)->CountCarStats(null, 'N'),
+                    'intransit' => (new Vehicle)->CountCarStats('IT', null),
+                    'wholesale' => (new Vehicle)->WholeSale(),
+                    'dealsinprocess' => (new Vehicle)->DealsInProcess(),
+                ];
+
 
     	
-    	return view('admin.inventory.inventory-search', compact('locations', 'statuscodes', 'types', 'makes', 'vehicles', 'numberofdays'));
+    	return view('admin.inventory.inventory-search', compact('locations', 'statuscodes', 'types', 'makes', 'vehicles', 'numberofdays', 'stats'));
     }
 
 

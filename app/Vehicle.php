@@ -145,10 +145,46 @@ class Vehicle extends Model
 
 
 
-    public static function scopeCountCarStats($query, $carStatus){
-        return $query->where('fldStatusCode', $carStatus)
+    public static function scopeCountCarStats($query, $fldLocationCode = null, $carStatus = null){
+        if ($fldLocationCode !== null) {
+            return $query->where('fldLocationCode', $fldLocationCode)
                     ->count();
+        }
+
+        if ($carStatus !== null) {
+            return $query->where('fldStatusCode', $carStatus)
+                ->count();
+        }
+
     }
+
+
+
+
+
+    public static function scopeWholeSale($query)
+    {
+        $total_auction = $query->where('fldLocationCode', 'A')->count();
+        $total_auction2 = $query->where('fldLocationCode', 'A')->where('fldCode', 'A')->where('fldKey1', '<>', 'P')->count();
+        $rs_total_used_w = $query->where('fldCode', 'A')->where('fldKey1', '<>', 'P')->count();
+        return $rs_total_used_w + $total_auction - $total_auction2;
+        
+    }
+
+
+
+
+    public static function scopeDealsInProcess($query)
+    {
+        return $query->where('fldStatusCode', 'U')->where('fldKey1', 'P')->count();
+        
+    }
+
+
+
+
+
+
 
 
 

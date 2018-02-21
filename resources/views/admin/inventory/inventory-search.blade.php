@@ -41,6 +41,19 @@
 			<div class="content-header row">
 				<div class="col-12">
 				<h1>Vehicle Inventory {{ !empty($numberofdays)? "- Last $numberofdays Days" : ''}} </h1>
+				<h6>
+					Vehicles: {{ $stats['specificTotal']  }}
+					<span class="text-primary">||</span> 
+					Used Available For Sale: {{ $stats['usedavailable'] }}
+					<span class="text-primary">||</span> 
+					New Vehicles For Sale: {{ $stats['newavailable']  }}
+					<span class="text-primary">||</span> 
+					In Transit: {{ $stats['intransit']  }}
+					<span class="text-primary">||</span> 
+					Wholesale: {{ $stats['wholesale']  }}
+					<span class="text-primary">||</span> 
+					Deals In Process: {{ $stats['dealsinprocess']  }}
+				</h6>
 				</div>
 
 			</div>
