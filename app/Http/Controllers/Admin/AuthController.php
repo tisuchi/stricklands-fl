@@ -67,6 +67,7 @@ class AuthController extends Controller
         $email = request()->input('email');
         $hasHash = User::where('fld_usr_email', $email)->where('passowrd_recovery_hash', '!=', '<>')->first();
 
+
         if ($hasHash) {
             //trigger an email for with password reset details
             $emailContent = "Hello";
@@ -80,7 +81,13 @@ class AuthController extends Controller
                     ->back()->with('success', 'You have successfully requested for password reset.');
 
         } else {
+
             $addHash = User::where('fld_usr_email', $email)->first();
+
+            //if no user, return error 
+            if (!$addHash) return redirect()->back()->with('danger', 'Opps. There is no user with this email.');
+
+
             $addHash->passowrd_recovery_hash = str_random(40);
             $addHash->save();
 
@@ -90,7 +97,7 @@ class AuthController extends Controller
             $emailContent .= route('confirm-password-Reset', $addHash->passowrd_recovery_hash);
 
             //send email
-            sendEmail('freelancer@519stricklands.com', 'Reset Password', $emailContent, $email);
+            sendEmail('freelancer@519stricklands.com', 'Reset Password', $emailContent, 'tisuchi@gmail.com');
 
             return redirect()
                     ->back()->with('success', 'You have successfully requested for password reset.');
