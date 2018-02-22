@@ -25,19 +25,26 @@ class AuthController extends Controller
     {
         
         //check userlogin manually
-        $hasUser = User::where('fld_usr_email', request()->input('email'))
+        /*$hasUser = User::where('fld_usr_email', request()->input('email'))
                         ->where('fld_usr_password', request()->input('password'))       
                         //->where('fld_usr_status', 'Y')
-                        ->first();
+                        ->first();*/
         
+        if (Auth::attempt(['fld_usr_email' => request()->input('email'), 'fld_usr_password' => request()->input('password')])) {
+            return redirect()->route('index-dashboard')->with('success', 'You have successfully logged in.');            
+        } else {
+            return redirect()->back()->with('danger', "Wrong Username / Password");
+        }
 
-        if ( $hasUser ) {
+
+        /*if ( $hasUser ) {
             Auth::login($hasUser);
             
             return redirect()->route('index-dashboard')->with('success', 'You have successfully logged in.');            
         }  else {
             return redirect()->back()->with('danger', "Wrong Username / Password");
-        } 	
+        }*/
+        
     }
 
 
