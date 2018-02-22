@@ -31,6 +31,7 @@ class AuthController extends Controller
                         ->first();*/
         
         if (Auth::attempt(['fld_usr_email' => request()->input('email'), 'fld_usr_password' => request()->input('password')])) {
+            return Auth::user();
             return redirect()->route('index-dashboard')->with('success', 'You have successfully logged in.');            
         } else {
             return redirect()->back()->with('danger', "Wrong Username / Password");
@@ -44,7 +45,7 @@ class AuthController extends Controller
         }  else {
             return redirect()->back()->with('danger', "Wrong Username / Password");
         }*/
-        
+
     }
 
 
