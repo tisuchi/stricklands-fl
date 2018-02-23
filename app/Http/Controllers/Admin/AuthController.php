@@ -113,7 +113,7 @@ class AuthController extends Controller
             $emailContent .= route('confirm-password-Reset', $hasHash->passowrd_recovery_hash);
 
             //send email
-            sendEmail('freelancer@519stricklands.com', 'Reset Password', $emailContent, 'tisuchi@gmail.com');
+            sendEmail('freelancer@519stricklands.com', 'Reset Password', $emailContent, $email);
 
             return redirect()
                     ->back()->with('success', 'You have successfully requested for password reset.');
@@ -135,7 +135,7 @@ class AuthController extends Controller
             $emailContent .= route('confirm-password-Reset', $addHash->passowrd_recovery_hash);
 
             //send email
-            sendEmail('freelancer@519stricklands.com', 'Reset Password', $emailContent, 'tisuchi@gmail.com');
+            sendEmail('freelancer@519stricklands.com', 'Reset Password', $emailContent, $email);
 
             return redirect()
                     ->back()->with('success', 'You have successfully requested for password reset.');
