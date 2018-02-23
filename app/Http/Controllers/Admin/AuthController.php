@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
+use DB;
 use Auth;
+use Hash;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -23,15 +25,43 @@ class AuthController extends Controller
 
     public function doLogin()
     {
+
+        $validate_admin = DB::table('a_tbl_contact')
+                            ->select('id', 'fld_usr_email', 'fld_usr_password')
+                            ->where('fld_usr_email', request()->input('email'));
+                            //->first();
+
+        //dd($validate_admin);
+
+
+        if($validate_admin->count()) {
+            $user = $validate_admin->first();
+            if(Hash::check(request()->input('password'), $user->fld_usr_password)) {
+                 //User has provided valid credentials :)
+                Auth::loginUsingId($user->id, TRUE);
+                return redirect()->route('index-dashboard')->with('success', 'You have successfully logged in.');
+            } else {
+                return redirect()->back()->with('danger', "Wrong Username / Password");
+            }
+        } else {
+            return redirect()->back()->with('danger', "Wrong Username / Password");
+        }
+
         
+        
+        //return bcrypt(request()->input('password'));
         //check userlogin manually
-        /*$hasUser = User::where('fld_usr_email', request()->input('email'))
-                        ->where('fld_usr_password', request()->input('password'))       
+        $hasUser = User::where('fld_usr_email', request()->input('email'))
+                        ->where('fld_usr_password', Hash::check(request()->input('password')))       
                         //->where('fld_usr_status', 'Y')
-                        ->first();*/
+                        ->first();
+
+        //return $hasUser;
         
-        if (Auth::attempt(['fld_usr_email' => request()->input('email'), 'fld_usr_password' => request()->input('password')])) {
-            return Auth::user();
+        //if (Auth::attempt(['fld_usr_email' => request()->input('email'), 'fld_usr_password' => request()->input('password')])) {
+            //return Auth::user();
+        if($hasUser){
+            Auth::login($hasUser);
             return redirect()->route('index-dashboard')->with('success', 'You have successfully logged in.');            
         } else {
             return redirect()->back()->with('danger', "Wrong Username / Password");
@@ -83,7 +113,7 @@ class AuthController extends Controller
             $emailContent .= route('confirm-password-Reset', $hasHash->passowrd_recovery_hash);
 
             //send email
-            sendEmail('freelancer@519stricklands.com', 'Reset Password', $emailContent, $email);
+            sendEmail('freelancer@519stricklands.com', 'Reset Password', $emailContent, 'tisuchi@gmail.com');
 
             return redirect()
                     ->back()->with('success', 'You have successfully requested for password reset.');
@@ -105,7 +135,7 @@ class AuthController extends Controller
             $emailContent .= route('confirm-password-Reset', $addHash->passowrd_recovery_hash);
 
             //send email
-            sendEmail('freelancer@519stricklands.com', 'Reset Password', $emailContent, $email);
+            sendEmail('freelancer@519stricklands.com', 'Reset Password', $emailContent, 'tisuchi@gmail.com');
 
             return redirect()
                     ->back()->with('success', 'You have successfully requested for password reset.');
@@ -138,7 +168,7 @@ class AuthController extends Controller
 
     public function doResetPassword()
     {
-        
+        //return bcrypt(request()->input('password'));
         $hash = request()->input('hash');
         $hasHash = User::where('passowrd_recovery_hash', $hash)->first();
         
